@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CSIS 3280 Lecture 8 教材原文与中文翻译对照：含截图文字 OCR 识别结果">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f766e'/%3E%3Ctext x='32' y='45' font-size='36' text-anchor='middle' fill='white' font-family='Arial'%3E8%3C/text%3E%3C/svg%3E">
+<title>CSIS 3280 · Lecture 8 | 教材原文 / 中文对照</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#1c2530;--muted:#6b7684;--line:#e2e6ec;
+--accent:#0f766e;--accent-soft:#e6f4f1;--code-bg:#f7f8fa;--code-ink:#243447;--warm:#b45309}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+.top{background:linear-gradient(120deg,#0f766e,#115e59 55%,#134e4a);color:#fff;padding:34px 28px 26px}
+.top-inner{max-width:1500px;margin:0 auto}
+.top h1{margin:0 0 6px;font-size:26px;letter-spacing:.2px}
+.top p{margin:0;color:#cdece7;font-size:14px}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.stat{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);border-radius:8px;
+padding:6px 12px;font-size:13px;color:#eafffb}
+.stat b{font-size:15px}
+.toolbar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);
+border-bottom:1px solid var(--line);padding:10px 28px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.toolbar .spacer{flex:1}
+.toolbar button,.toolbar input{border:1px solid var(--line);background:#fff;border-radius:7px;
+padding:7px 12px;font-size:13px;color:var(--ink);font-family:inherit}
+.toolbar button{cursor:pointer;transition:.15s}
+.toolbar button:hover{border-color:var(--accent);color:var(--accent)}
+.toolbar button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.toolbar input{width:210px;outline:none}
+.toolbar input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.toc{max-width:1500px;margin:22px auto 0;padding:0 28px;display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.toc a{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+display:flex;flex-direction:column;gap:2px;transition:.15s}
+.toc a:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,118,110,.09)}
+.toc b{font-size:14px}.toc span{font-size:12px;color:var(--muted)}
+main{max-width:1500px;margin:0 auto;padding:0 28px 60px}
+.part{margin-top:34px;scroll-margin-top:70px}
+.part-head{border-left:4px solid var(--accent);padding:2px 0 2px 14px;margin-bottom:16px}
+.part-head h2{margin:0;font-size:20px}
+.part-sub{font-size:12px;color:var(--muted);letter-spacing:.4px;text-transform:uppercase}
+.slide{background:var(--card);border:1px solid var(--line);border-radius:12px;
+margin-bottom:18px;overflow:hidden;scroll-margin-top:70px;box-shadow:0 1px 2px rgba(20,30,45,.03)}
+.slide-head{display:flex;align-items:baseline;gap:12px;padding:14px 20px;
+background:linear-gradient(90deg,#fafcfc,#fff);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.page-badge{background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12px;
+padding:3px 9px;border-radius:6px;letter-spacing:.5px}
+.slide-head h2{margin:0;font-size:17px;line-height:1.4}
+.zh-sub{color:var(--muted);font-size:14px}
+.zh-sub::before{content:"／";margin-right:8px;color:var(--line)}
+.grid{display:grid;grid-template-columns:1fr 1fr}
+.col{padding:18px 22px 22px;min-width:0}
+.col-en{border-right:1px solid var(--line)}
+.col-zh{background:#fcfdfd}
+.col-label{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);
+font-weight:700;margin-bottom:8px}
+.col-en .col-label{color:var(--accent)}
+.col-zh .col-label{color:var(--warm)}
+.en-title{font-size:15px;margin:0 0 12px;color:#334155}
+.zh-title{font-size:16px;margin:0 0 12px;color:#0f766e}
+.bullets{margin:0;padding-left:20px}
+.bullets li{margin:5px 0}
+.bullets li::marker{color:var(--accent)}
+.col-zh .bullets li::marker{color:var(--warm)}
+.lead-zh{margin:10px 0 0;padding:11px 13px;background:#fdf6ec;border-radius:8px;
+font-size:14px;color:#7c4a12}
+.lead-tag{display:inline-block;margin-right:8px;padding:1px 7px;border-radius:4px;
+background:#f6e3bf;font-size:11px;font-weight:700;color:#92560d;vertical-align:1px}
+.note{margin-top:14px;border:1px dashed #d7dee6;border-radius:8px;padding:10px 13px;background:#fafbfc}
+.note-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.6px;color:#8a6d3b;
+background:#fff4dc;border-radius:4px;padding:1px 7px;margin-bottom:6px}
+.note p{margin:0;font-size:13.5px;color:#4b5b6b;line-height:1.8}
+.ocr{margin-top:14px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--code-bg)}
+.ocr summary{cursor:pointer;list-style:none;padding:8px 12px;font-size:12.5px;font-weight:600;
+color:#334155;background:#eef2f5;display:flex;align-items:center;gap:8px}
+.ocr summary::-webkit-details-marker{display:none}
+.ocr-tag{font-size:10px;background:var(--accent);color:#fff;border-radius:3px;padding:1px 5px;letter-spacing:.5px}
+.arrow{margin-left:auto;color:var(--muted);transition:transform .2s}
+.ocr[open] .arrow{transform:rotate(180deg)}
+.ocr pre{margin:0;padding:12px 14px;overflow:auto;max-height:460px;
+font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:12px;line-height:1.6;
+color:var(--code-ink);white-space:pre;tab-size:4}
+.ocr pre code{font:inherit}
+.code-explain{margin-top:16px;border:1px solid #f0e2cc;border-radius:8px;background:#fffcf6;padding:12px 14px}
+.explain-head{font-size:12px;font-weight:700;color:var(--warm);letter-spacing:.6px;margin-bottom:6px}
+.code-explain ol{margin:0;padding-left:20px;font-size:13.5px;color:#4b5b6b}
+.code-explain li{margin:6px 0}
+footer{border-top:1px solid var(--line);padding:22px 28px;color:var(--muted);font-size:12.5px;
+text-align:center;background:#fff}
+.hint{max-width:1500px;margin:14px auto 0;padding:0 28px;font-size:12.5px;color:var(--muted)}
+.hint b{color:var(--ink)}
+#topBtn{position:fixed;right:22px;bottom:22px;width:42px;height:42px;border-radius:50%;
+background:var(--accent);color:#fff;border:0;font-size:18px;cursor:pointer;display:none;
+box-shadow:0 6px 18px rgba(15,118,110,.35)}
+body.mode-en .col-zh,body.mode-zh .col-en{display:none}
+body.mode-en .grid,body.mode-zh .grid{grid-template-columns:1fr}
+body.mode-en .col-en,body.mode-zh .col-zh{border-right:0}
+.no-result{display:none;padding:40px;text-align:center;color:var(--muted)}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.col-en{border-right:0;border-bottom:1px solid var(--line)}
+ .col{padding:16px}.top{padding:24px 18px}.toolbar,.toc,main,.hint{padding-left:16px;padding-right:16px}
+ .slide-head{padding:12px 16px}}
+@media print{.toolbar,#topBtn,.toc,.hint{display:none}.top{padding:16px}.slide{break-inside:avoid;box-shadow:none}
+ .ocr pre{max-height:none;white-space:pre-wrap}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body class="mode-both">
+<header class="top">
+  <div class="top-inner">
+    <h1>CSIS 3280 · Lecture 8 — 教材原文 / 中文对照</h1>
+    <p>OOP Web Application (CH23) with DB (CH 27–28), CRUD (CH 29) &nbsp;·&nbsp; 来源：Lecture08.pdf</p>
+    <div class="stats">
+      <div class="stat"><b>62</b> 页幻灯片</div>
+      <div class="stat"><b>70</b> 张截图文字识别</div>
+      <div class="stat"><b>1024</b> 行代码 / 命令</div>
+      <div class="stat">左：教材原文 &nbsp;|&nbsp; 右：中文翻译</div>
+    </div>
+  </div>
+</header>
+<div class="toolbar">
+  <button data-mode="both" class="active">双语对照</button>
+  <button data-mode="en">仅原文</button>
+  <button data-mode="zh">仅中文</button>
+  <button id="toggleCode">收起全部代码</button>
+  <span class="spacer"></span>
+  <input id="search" type="search" placeholder="搜索标题 / 正文 / 代码…" aria-label="搜索内容">
+</div>
+<div class="hint"><b>说明：</b>左栏为 PDF 中可直接复制的文字，以及图片截图（代码、SQL、命令行、UML、浏览器界面）中经 OCR 识别并校对的文字；右栏为逐条中文翻译与截图讲解。点击“截图 N”可折叠代码，右上角可切换单栏 / 双语模式。</div>
+<nav class="toc" aria-label="章节导航"><a href="#part-1"><b>第一部分 · OOP Web 应用与高级 OOP</b><span>CH 23 / CH 26 · P1–P6</span></a><a href="#part-2"><b>第二部分 · 数据库基础</b><span>CH 27 · P7–P19</span></a><a href="#part-3"><b>第三部分 · PDO 与数据库连接</b><span>CH 28 · P20–P29</span></a><a href="#part-4"><b>第四部分 · CRUD 增删改查</b><span>CH 29 · P30–P45</span></a><a href="#part-5"><b>第五部分 · 表单验证与登录认证</b><span>Validation &amp; Auth · P46–P62</span></a></nav>
+<main id="content"><section class="part" id="part-1"><div class="part-head"><div><span class="part-sub">CH 23 / CH 26 · P1–P6</span><h2>第一部分 · OOP Web 应用与高级 OOP</h2></div></div><article class="slide" id="slide-1" data-page="1"><div class="slide-head"><span class="page-badge">P01</span><h2>CSIS 3280: Lecture 8 OOP web application (CH23) with DB (CH 27-28), CRUD (CH 29)</h2><span class="zh-sub">CSIS 3280：第 8 讲 —— 带数据库的面向对象 Web 应用（第 23 章）、数据库（第 27–28 章）与 CRUD（第 29 章）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">CSIS 3280: Lecture 8 OOP web application (CH23) with DB (CH 27-28), CRUD (CH 29)</h3></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">CSIS 3280：第 8 讲 —— 带数据库的面向对象 Web 应用（第 23 章）、数据库（第 27–28 章）与 CRUD（第 29 章）</h3><p class="lead-zh"><span class="lead-tag">本节导读</span>本讲把 Twig / OOP 的 Web 应用与数据库连接（PDO）、增删改查（CRUD）、表单验证以及登录认证串成一条完整主线。</p></div></div></article><article class="slide" id="slide-2" data-page="2"><div class="slide-head"><span class="page-badge">P02</span><h2>OOP Web Application (CH 23), Advanced OOP (CH26)</h2><span class="zh-sub">面向对象 Web 应用（第 23 章）与高级面向对象（第 26 章）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">OOP Web Application (CH 23), Advanced OOP (CH26)</h3></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">面向对象 Web 应用（第 23 章）与高级面向对象（第 26 章）</h3><p class="lead-zh"><span class="lead-tag">本节导读</span>先回顾第 23 章的 Application / Controller 结构与 Twig 模板，再补充第 26 章的抽象方法、接口与 Trait 等概念。</p></div></div></article><article class="slide" id="slide-3" data-page="3"><div class="slide-head"><span class="page-badge">P03</span><h2>Recall Twig: Application class</h2><span class="zh-sub">回顾 Twig：Application 类</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Recall Twig: Application class</h3><ul class="bullets"><li>The Application class provide the run() method to render the page</li><li>The Application class contain part of decision logic and page-generation action</li><li>Separate Controller(s) classes can be implemented</li><li>Each page of our web pages are unique while having common parts</li><li>Multiple Controller classes may be needed</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>namespace Mattsmithdev;
+
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
+
+class Application
+{
+    const PATH_TO_TEMPLATES = __DIR__ . '/../templates';
+
+    private Environment $twig;
+
+    public function __construct()
+    {
+        $loader = new FilesystemLoader(self::PATH_TO_TEMPLATES);
+        $this-&gt;twig = new Environment($loader);
+    }
+
+    public function run()
+    {
+        $meals = [
+            'breakfast' =&gt; 'toast',
+            'lunch' =&gt; 'salad',
+            'dinner' =&gt; 'fish and chips'
+        ];
+
+        $product1 = new Product();
+        $product1-&gt;setDescription('bag of nails');
+        $product1-&gt;setPrice(10.99);
+
+        $template = 'demo.html.twig';
+        $args = [
+            'name' =&gt; 'matt',
+            'meals' =&gt; $meals,
+            'product' =&gt; $product1
+        ];
+
+        $html = $this-&gt;twig-&gt;render($template, $args);
+        print $html;
+    }
+}</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">回顾 Twig：Application 类</h3><ul class="bullets"><li>Application 类提供 run() 方法来渲染页面。</li><li>Application 类包含部分决策逻辑以及页面生成的动作。</li><li>可以实现彼此独立的控制器（Controller）类。</li><li>网站的每个页面既各有特点，又拥有公共部分。</li><li>因此可能需要多个控制器类。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>截图代码：命名空间 Mattsmithdev；引入 Twig 的 FilesystemLoader 与 Environment；Application 类用常量 PATH_TO_TEMPLATES 指向模板目录，构造函数创建 $twig；run() 中准备 $meals 数组和 $product1 对象，调用 render('demo.html.twig', $args) 后 print 输出。</li></ol></div></div></div></article><article class="slide" id="slide-4" data-page="4"><div class="slide-head"><span class="page-badge">P04</span><h2>Controller Abstract class and its child classes</h2><span class="zh-sub">控制器抽象类及其子类</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Controller Abstract class and its child classes</h3><ul class="bullets"><li>A Controller class can be defined as an abstract class</li><li>It can never be instantiated as an object</li><li>The controller for the home page, i.e., DefaultController class extends the abstract class</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>             {abstract}
+             Controller
+ +PATH_TO_TEMPLATES: String {readonly}
+  #twig: Twig\Environment
+  «constructor» +Controller()
+  DefaultController ProductController
+ +homepage() +productList()
+ +contactUs()</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>namespace Mattsmithdev;
+
+use \Twig\Loader\FilesystemLoader;
+use \Twig\Environment;
+
+abstract class Controller
+{
+    const PATH_TO_TEMPLATES = __DIR__ . '/../templates';
+
+    protected Environment $twig;
+
+    public function __construct()
+    {
+        $loader = new FilesystemLoader(self::PATH_TO_TEMPLATES);
+        $this-&gt;twig = new Environment($loader);
+    }
+}</code></pre></details><details class="ocr" open><summary>截图 3 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>namespace Mattsmithdev;
+
+use \Twig\Loader\FilesystemLoader;
+use \Twig\Environment;
+
+class DefaultController extends Controller
+{
+    public function homepage(): void
+    {
+        $template = 'homepage.html.twig';
+        $args = [];
+
+        $html = $this-&gt;twig-&gt;render($template, $args);
+        print $html;
+    }
+
+    public function contactUs(): void
+    {
+        $template = 'contactUs.html.twig';
+        $args = [];
+
+        $html = $this-&gt;twig-&gt;render($template, $args);
+        print $html;
+    }
+}</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">控制器抽象类及其子类</h3><ul class="bullets"><li>可以把 Controller 类定义为抽象类（abstract class）。</li><li>抽象类永远不能被实例化为对象。</li><li>首页的控制器，即 DefaultController 类，继承该抽象类。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>UML 类图：Controller 为抽象类 {abstract}，含 +PATH_TO_TEMPLATES 常量与 #twig 属性；子类 DefaultController、ProductController 分别提供 homepage()、contactUs()、productList() 等方法。</li><li>抽象基类 Controller 代码：引入 Twig 加载器，声明 protected Environment $twig，并在构造函数中初始化模板引擎。</li><li>DefaultController 代码：homepage() 与 contactUs() 各自选定模板，用 $this-&gt;twig-&gt;render($template, $args) 渲染后 print 输出。</li></ol></div></div></div></article><article class="slide" id="slide-5" data-page="5"><div class="slide-head"><span class="page-badge">P05</span><h2>Controller Abstract class and its child classes</h2><span class="zh-sub">控制器抽象类及其子类</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Controller Abstract class and its child classes</h3><ul class="bullets"><li>ProductController class extends the abstract class</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>             {abstract}
+             Controller
+ +PATH_TO_TEMPLATES: String {readonly}
+  #twig: Twig\Environment
+  «constructor» +Controller()
+  DefaultController ProductController
+ +homepage() +productList()
+ +contactUs()</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>namespace Mattsmithdev;
+
+use \Twig\Loader\FilesystemLoader;
+use \Twig\Environment;
+
+abstract class Controller
+{
+    const PATH_TO_TEMPLATES = __DIR__ . '/../templates';
+
+    protected Environment $twig;
+
+    public function __construct()
+    {
+        $loader = new FilesystemLoader(self::PATH_TO_TEMPLATES);
+        $this-&gt;twig = new Environment($loader);
+    }
+}</code></pre></details><details class="ocr" open><summary>截图 3 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>namespace Mattsmithdev;
+
+use \Twig\Loader\FilesystemLoader;
+use \Twig\Environment;
+
+class ProductController
+{
+    const PATH_TO_TEMPLATES = __DIR__ . '/../templates';
+
+    private Environment $twig;
+
+    public function __construct()
+    {
+        $loader = new FilesystemLoader(self::PATH_TO_TEMPLATES);
+        $this-&gt;twig = new Environment($loader);
+    }
+
+    public function productList()
+    {
+        $product1 = new Product('Hammer', 9.99);
+        $product2 = new Product('Bag of nails', 6.00);
+        $product3 = new Product('Bucket', 2.00);
+        $products = [$product1, $product2, $product3];
+
+        $template = 'productList.html.twig';
+        $args = [
+            'products' =&gt; $products
+        ];
+        $html = $this-&gt;twig-&gt;render($template, $args);
+        print $html;
+    }
+}</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">控制器抽象类及其子类</h3><ul class="bullets"><li>ProductController 类同样继承该抽象类。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>与上一页相同的 UML 类图和抽象 Controller 基类（本页重复出现）。</li><li>ProductController 代码：productList() 创建 Hammer / Bag of nails / Bucket 三个 Product 对象，放入 $products 数组，交给 productList.html.twig 模板渲染。</li><li>截图中的代码 / 命令与界面文字，详见左侧原文。</li></ol></div></div></div></article><article class="slide" id="slide-6" data-page="6"><div class="slide-head"><span class="page-badge">P06</span><h2>Abstract Method, Interface, Trait</h2><span class="zh-sub">抽象方法、接口与 Trait</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Abstract Method, Interface, Trait</h3><ul class="bullets"><li>An abstract method is a method on a superclass that doesn’t have an implementation.</li><li>It declares the method’s signature: name, parameters, and return type.</li><li>Any subclasses must provide their own implementation</li><li>If a class declares one or more abstract methods, the class itself must also be abstract</li><li>An interface is a way to declare the signatures of one or more methods that a class should have.</li><li>Classes then implement the interface by declaring methods</li><li>Interfaces aren’t classes. They are independent of any class hierarchy</li><li>A trait is a way to provide default versions of methods that are shared among multiple, unrelated classes.</li><li>This feature offers not just the method signatures, but actual method implementations that can be overridden by the subclasses</li></ul><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>Read Chapter 26 and Chapter 25 (Static Methods, Class Constant)</p></div></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">抽象方法、接口与 Trait</h3><ul class="bullets"><li>抽象方法是父类中没有实现体的方法。</li><li>它只声明方法的签名：名称、参数和返回类型。</li><li>任何子类都必须提供自己的实现。</li><li>如果一个类声明了一个或多个抽象方法，这个类本身也必须声明为抽象类。</li><li>接口用于声明某个类应当具备的一个或多个方法的签名。</li><li>类通过声明这些方法来实现（implement）接口。</li><li>接口不是类，它独立于任何类层次结构。</li><li>Trait 用于为多个互不相关的类提供方法的默认实现版本。</li><li>这一特性不仅提供方法签名，还提供可被子类覆盖的真实方法实现。</li></ul><div class="note"><span class="note-tag">批注译文</span><p>请阅读第 26 章以及第 25 章（静态方法、类常量）。</p></div></div></div></article></section><section class="part" id="part-2"><div class="part-head"><div><span class="part-sub">CH 27 · P7–P19</span><h2>第二部分 · 数据库基础</h2></div></div><article class="slide" id="slide-7" data-page="7"><div class="slide-head"><span class="page-badge">P07</span><h2>Introduction to Databases (CH 27)</h2><span class="zh-sub">数据库入门（第 27 章）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Introduction to Databases (CH 27)</h3></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">数据库入门（第 27 章）</h3><p class="lead-zh"><span class="lead-tag">本节导读</span>本部分介绍关系型数据库的基本概念、SQL 建库建表、数据类型以及实体关系图（ERD）。</p></div></div></article><article class="slide" id="slide-8" data-page="8"><div class="slide-head"><span class="page-badge">P08</span><h2>Relational Database Concepts</h2><span class="zh-sub">关系型数据库概念</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Relational Database Concepts</h3><ul class="bullets"><li>Relational – Our data composed of a set of interrelated tables</li><li>Tables – Representation of entity.</li><li>Columns – Represents entity’s attributes. Each column has a unique name and a data type.</li><li>Rows – Represents a single instance of entity. Also called records.</li><li>Values – The data stored in the table.</li><li>Keys – Establish relationship between tables. It uniquely identify rows in a table, and any corresponding rows in other tables</li><li>Schemas – Like the blueprint of a database, this is the complete set of table designs</li><li>Relationships – represented as foreign keys these are design implicit and dictate how tables are related to each other.</li><li>Integrity – The correctness of the database that is maintained by assigning a unique key to each row</li><li>Referential Integrity – maintain a stable relationship between one table and another</li></ul></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">关系型数据库概念</h3><ul class="bullets"><li>关系型（Relational）：数据由一组相互关联的表组成。</li><li>表（Tables）：实体的表示。</li><li>列（Columns）：表示实体的属性，每列都有唯一的名称和数据类型。</li><li>行（Rows）：表示实体的一个实例，也称为记录（record）。</li><li>值（Values）：表中存储的数据。</li><li>键（Keys）：建立表与表之间的关系，唯一标识表中的行以及其他表中的对应行。</li><li>模式（Schemas）：如同数据库的蓝图，是全部表设计的完整集合。</li><li>关系（Relationships）：以外键表示，隐含在设计之中，规定表与表如何关联。</li><li>完整性（Integrity）：通过为每一行分配唯一键来维护数据库的正确性。</li><li>参照完整性（Referential Integrity）：维护表与表之间稳定的关联关系。</li></ul></div></div></article><article class="slide" id="slide-9" data-page="9"><div class="slide-head"><span class="page-badge">P09</span><h2>Relational Database Concepts</h2><span class="zh-sub">关系型数据库概念（续）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Relational Database Concepts</h3><ul class="bullets"><li>Database driver – This piece of software allows a program to communicate with a DBMS (Database Management System) through its own standard protocol</li><li>Connection – It is needed at runtime to access the database. The host and port should be provided for the connection.</li><li>SQL – Structured Query Language is used to define the structure of the related tables and to perform Create, Read, Update and Delete data.</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>CREATE TABLE IF NOT EXISTS product (
+    id integer PRIMARY KEY AUTO_INCREMENT,
+    description text,
+    price float
+)
+
+DELETE FROM product WHERE price &lt; 0
+
+SELECT * FROM product WHERE price &gt; 99</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">关系型数据库概念（续）</h3><ul class="bullets"><li>数据库驱动（Database driver）：让程序通过自身标准协议与 DBMS（数据库管理系统）通信的软件。</li><li>连接（Connection）：运行时访问数据库所必需，需要提供主机与端口。</li><li>SQL（结构化查询语言）：用于定义相关表的结构，并执行数据的创建、读取、更新与删除（CRUD）。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>截图 SQL：CREATE TABLE IF NOT EXISTS product（id 自增主键、description text、price float）；DELETE FROM product WHERE price &lt; 0；SELECT * FROM product WHERE price &gt; 99。</li></ol></div></div></div></article><article class="slide" id="slide-10" data-page="10"><div class="slide-head"><span class="page-badge">P10</span><h2>OOP Mapping to Database</h2><span class="zh-sub">面向对象到数据库的映射</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">OOP Mapping to Database</h3><ul class="bullets"><li>OOP web applications with a database is implemented by designing a class that corresponds to each table in the database.</li><li>These entity classes have properties mirroring the table’s columns,</li><li>an instance of the class corresponds to a record (row) of the table.</li><li>Writing data to a database table:</li><li>create an object of the appropriate class containing the new data</li><li>use the database connection to send the object’s data to the database table.</li><li>a new unique key for the new record can be sent back to the web application and stored in the corresponding object for future reference.</li><li>Reading data from a database table:</li><li>read the retrieved data into a new object of the appropriate class</li><li>entity-relationship (ER) model can be created to show the database relational’s schema</li></ul></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">面向对象到数据库的映射</h3><ul class="bullets"><li>带数据库的 OOP Web 应用，其实现方式是让每一个类对应数据库中的一张表。</li><li>这些实体类的属性与表的列一一对应。</li><li>类的一个实例对应表中的一条记录（行）。</li><li>向数据库表写入数据：</li><li>创建相应类的对象，其中装入新数据。</li><li>通过数据库连接把对象的数据发送到数据库表。</li><li>新记录的唯一键可以返回给 Web 应用，并存入相应对象以备后用。</li><li>从数据库表读取数据：</li><li>把取出的数据读入相应类的一个新对象。</li><li>可以建立实体—关系（ER）模型来展示数据库的关系模式。</li></ul></div></div></article><article class="slide" id="slide-11" data-page="11"><div class="slide-head"><span class="page-badge">P11</span><h2>ERD and UML</h2><span class="zh-sub">实体关系图（ERD）与 UML 类图</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">ERD and UML</h3><ul class="bullets"><li>The Product table shown in the ERD below has a id as its own primary key. The table has category_id as a foreign key which identifies related information in the Category table.</li><li>The crow’s foot link and asterisk (*) at the Product end expresses the relationship “each category is associated with zero, one, or more products.”</li><li>The UML Class diagram related the ERD</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>    Product
+             * 1
+                       Category
+ id: integer (unique primary key)
+                   id: Integer (unique primary key)
+ description: text
+                   name: text
+ price: float
+ category_id: integer
+               Note
+      The attribute (column) category_id references the
+      ID of each Product's related Category row</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>      Product
+               *
+                    1
+                        Category
+ «get» -id: Integer
+                      «get» -id: Integer
+ «get/set» -description: string
+                      «get/set» - name: String
+ «get/set» -price: Float
+ «get/set» -category: Category -
+                       Note
+                The category property references each
+                Product's related Category object</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">实体关系图（ERD）与 UML 类图</h3><ul class="bullets"><li>下图 ERD 中的 Product 表以 id 作为自己的主键，并用 category_id 外键指向 Category 表中的相关信息。</li><li>Product 一端的鱼尾（crow's foot）连线与星号（*）表示“每个类别可关联零个、一个或多个产品”。</li><li>与该 ERD 对应的 UML 类图。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>ERD 图：Product（id、description、price、category_id）与 Category（id、name）为一对多关系；注释说明 category_id 引用每个 Product 所关联的 Category 行的 id。</li><li>UML 类图：Product 与 Category 类各有 getter/setter，Product 的 category 属性引用关联的 Category 对象。</li></ol></div></div></div></article><article class="slide" id="slide-12" data-page="12"><div class="slide-head"><span class="page-badge">P12</span><h2>The Model-View-Controller Pattern</h2><span class="zh-sub">MVC（模型—视图—控制器）模式</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">The Model-View-Controller Pattern</h3><ul class="bullets"><li>The classes corresponding to the database tables are part of the model component of the application</li><li>The action controller classes communicate with (read from and modify) the model classes.</li><li>Utilizing the OO classes that communicate with the database.</li><li>Database interactions are kept completely separate from the controller and view components of the application.</li><li>We could change the underlying database without having to make any changes to the front controller, the action controller classes, or the templates.</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>                     HTTP
+                     request
+      Front controller
+                        Web
+         Action controller Internet client
+                    HTTP
+                    response
+      Model
+              View
+             (templating)
+      Data class
+ Database
+              Web server</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">MVC（模型—视图—控制器）模式</h3><ul class="bullets"><li>与数据库表对应的类属于应用的模型（model）组件。</li><li>动作控制器类负责与模型类通信（读取与修改）。</li><li>利用这些与数据库通信的面向对象类。</li><li>数据库交互与应用的控制器、视图组件完全分离。</li><li>更换底层数据库时，无需修改前端控制器、动作控制器类或模板。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>MVC 示意图：浏览器（Web 客户端）发出 HTTP 请求 → 前端控制器 → 动作控制器 → 模型 / 数据类 → 数据库；结果经视图（模板引擎）生成 HTTP 响应，通过 Web 服务器返回。</li></ol></div></div></div></article><article class="slide" id="slide-13" data-page="13"><div class="slide-head"><span class="page-badge">P13</span><h2>Navigating the Databases</h2><span class="zh-sub">在数据库中浏览</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Navigating the Databases</h3><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>Root password is empty…<br>Ha! So much for security<br>Oh well, this is a not a<br>production environment….<br>Go to your Command<br>Prompt and type<br>mysql –u root</p></div><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>MariaDB [(none)]&gt; show databases;
++--------------------------------+
+| Database |
++--------------------------------+
+  information_schema
+  mysql
+  performance_schema
+  phpmyadmin
+  test
++--------------------------------+</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>MariaDB [(none)]&gt; use mysql;
+Database changed
+MariaDB [mysql]&gt; show tables;
++--------------------------------+
+  Tables_in_mysql
++--------------------------------+
+  column_stats
+  columns_priv
+  db
+  event
+  func
+  general_log
+  global_priv
+  gtid_slave_pos
+  help_category
+  help_keyword
+  help_relation
+  help_topic
+  index_stats
+  innodb_index_stats
+  innodb_table_stats
+  plugin
+  proc</code></pre></details><details class="ocr" open><summary>截图 3 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>MariaDB [mysql]&gt; select user, host, authentication_string from user;
++--------------------------------+
+| User | Host | authentication_string |
++--------------------------------+
+ root localhost
+ root 127.0.0.1
+ root ::1
+    localhost
+ pma
++--------------------------------+
+ rows in set (0.009 sec)</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">在数据库中浏览</h3><div class="note"><span class="note-tag">批注译文</span><p>root 密码为空……哪来的安全性！不过这只是练习环境，并不是生产环境……打开命令提示符，输入 mysql –u root。</p></div><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>show databases; 列出 information_schema、mysql、performance_schema、phpmyadmin、test 等数据库。</li><li>use mysql; 之后 show tables; 查看 mysql 系统库中的数据表（column_stats、db、event、func、proc 等）。</li><li>select user, host, authentication_string from user; 查看数据库账号、主机与密码散列。</li></ol></div></div></div></article><article class="slide" id="slide-14" data-page="14"><div class="slide-head"><span class="page-badge">P14</span><h2>Creating Database</h2><span class="zh-sub">创建数据库</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Creating Database</h3><ul class="bullets"><li>Use the following command: CREATE DATABASE CREATE DATABASEWeek07_csis3280;</li><li>It is always a good idea to check whether the database exists or not. If it exists, drop the database</li></ul><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>Some people like to<br>differentiate the SQL<br>command (capital letters) and<br>column names (small letters).</p></div><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>MariaDB [(none)]&gt; DROP DATABASE IF EXISTS Week05_CSIS3280;
+Query OK, 0 rows affected, 1 warning (0.000 sec)
+MariaDB [(none)]&gt; CREATE DATABASE Week05_CSIS3280;
+Query OK, 1 row affected (0.001 sec)
+MariaDB [(none)]&gt; show databases;
++--------------------------------+
+| Database |
++--------------------------------+
+ information_schema
+ mysql
+ performance_schema
+ phpmyadmin
+ test
+ week05_csis3280
++--------------------------------+
+6 rows in set (0.001 sec)</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">创建数据库</h3><ul class="bullets"><li>使用 CREATE DATABASE 命令（示例：CREATE DATABASE Week07_csis3280;）。</li><li>最好先检查数据库是否已存在；如果已存在，就先删除（drop）该数据库。</li></ul><div class="note"><span class="note-tag">批注译文</span><p>有些人喜欢把 SQL 命令写成大写、把列名写成小写，以便区分。</p></div><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>MariaDB 命令行：DROP DATABASE IF EXISTS Week05_CSIS3280; → CREATE DATABASE Week05_CSIS3280; → show databases; 确认新库已出现在列表中。</li></ol></div></div></div></article><article class="slide" id="slide-15" data-page="15"><div class="slide-head"><span class="page-badge">P15</span><h2>User management</h2><span class="zh-sub">用户管理</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">User management</h3><ul class="bullets"><li>You can create a user login with CREATE USER command, yeah it’s so obvious rite….</li><li>You can grant some privileges to the newly created user</li><li>TIPS: You should not use the passcode as password</li></ul><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>When you want to delete a<br>user from the database, you<br>cannot just delete the user’s<br>record. You need to DROP<br>USER</p></div><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>MariaDB [(none)]&gt; CREATE USER CSIS3280 IDENTIFIED BY 'passcode';
+Query OK, 0 rows affected (0.003 sec)
+MariaDB [(none)]&gt; GRANT SELECT, INSERT, UPDATE, DELETE ON Week05_CSIS3280.*
+  -&gt; TO 'CSIS3280' IDENTIFIED BY 'passcode';
+Query OK, 0 rows affected (0.002 sec)
+MariaDB [(none)]&gt; flush privileges;
+Query OK, 0 rows affected (0.000 sec)</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>MariaDB [(none)]&gt; use mysql;
+Database changed
+MariaDB [mysql]&gt; select user, host from user;
++--------------------------------+
+ User Host
++--------------------------------+
+ CSIS3280 %
+ root 127.0.0.1
+ root ::1
+ pma localhost
+  root localhost
++--------------------------------+
+5 rows in set (0.001 sec)
+MariaDB [mysql]&gt; DROP USER 'CSIS3280'@'%';
+Query OK, 0 rows affected (0.001 sec)
+MariaDB [mysql]&gt; flush privileges;
+Query OK, 0 rows affected (0.000 sec)</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">用户管理</h3><ul class="bullets"><li>可以用 CREATE USER 命令创建登录用户（名字直白得一目了然……）。</li><li>可以用 GRANT 给新建的用户授予若干权限。</li><li>提示：不要把 passcode 当作真正的密码（此处仅为演示）。</li></ul><div class="note"><span class="note-tag">批注译文</span><p>要从数据库中删除用户，不能直接删掉用户记录，必须使用 DROP USER。</p></div><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>CREATE USER CSIS3280 IDENTIFIED BY 'passcode'; → GRANT SELECT, INSERT, UPDATE, DELETE ON Week05_CSIS3280.* TO 'CSIS3280' IDENTIFIED BY 'passcode'; → flush privileges;</li><li>select user, host from user; 查看用户列表，再用 DROP USER 'CSIS3280'@'%'; 删除用户并刷新权限。</li></ol></div></div></div></article><article class="slide" id="slide-16" data-page="16"><div class="slide-head"><span class="page-badge">P16</span><h2>CREATE TABLE</h2><span class="zh-sub">CREATE TABLE 建表</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">CREATE TABLE</h3><ul class="bullets"><li>Basic CREATE TABLE Statement: CREATE TABLE tablename ( column_name datatype constraints )ENGINE=STORAGE_ENGINE</li><li>Tablename – the canonical name you want to give the table (in this course you must append the naming convention ABcXXXXX to any table you create)</li><li>Columname – the canonical name you want to give the column</li><li>Datatype – declares the (textbook calls these column types)</li><li>Constraints (next page)</li><li>Storage engine: InnoDB to enforce referential integrity (we will use this).</li></ul></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">CREATE TABLE 建表</h3><ul class="bullets"><li>基本 CREATE TABLE 语法：CREATE TABLE tablename ( column_name datatype constraints ) ENGINE=STORAGE_ENGINE。</li><li>表名（Tablename）：给表指定的规范名称（本课程要求在任何新建的表名后附加 ABcXXXXX 命名约定）。</li><li>列名（Columname）：给列指定的规范名称。</li><li>数据类型（Datatype）：声明列的类型（教材称之为 column types）。</li><li>约束（Constraints）：见下一页。</li><li>存储引擎：使用 InnoDB 以强制参照完整性（本课程采用它）。</li></ul></div></div></article><article class="slide" id="slide-17" data-page="17"><div class="slide-head"><span class="page-badge">P17</span><h2>Create Table -- Constraint</h2><span class="zh-sub">建表 —— 约束</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Create Table -- Constraint</h3><ul class="bullets"><li>NOT NULL – must have a value</li><li>AUTO_INCREMENT – This is similar to AutoNumber in Access or IDENTITY in SQL Server – MySQL automatically will generate a number for you</li><li>PRIMARY KEY – Entries must be unique, this is specified for the table.</li><li>If you need to specify a concatenated key, you must place the PRIMARY KEY constraint on its own.</li><li>FOREIGN KEY – Specify the column in the current table and the table and column it references, they must be the same data type.</li></ul></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">建表 —— 约束</h3><ul class="bullets"><li>NOT NULL：必须有值。</li><li>AUTO_INCREMENT：类似 Access 的 AutoNumber 或 SQL Server 的 IDENTITY，MySQL 会自动为你生成编号。</li><li>PRIMARY KEY：条目必须唯一，是针对整张表指定的。</li><li>如果需要指定组合（复合）主键，必须单独放置 PRIMARY KEY 约束。</li><li>FOREIGN KEY：指定当前表中的列以及它所引用的表和列，两者必须是相同的数据类型。</li></ul></div></div></article><article class="slide" id="slide-18" data-page="18"><div class="slide-head"><span class="page-badge">P18</span><h2>Data Types</h2><span class="zh-sub">数据类型</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Data Types</h3><ul class="bullets"><li>Four basic types:</li><li>Numeric</li><li>Date and time</li><li>String</li><li>Spatial (for geocoding)</li><li>You should always pick the smallest data type that the data you want to store will fit into.</li><li>See the table for numeric (integers) data type</li><li>Please see https://dev.mysql.com/doc/refman/8.0/en/data- types.html</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>Type              Range                                Storage (Bytes)  Description
+TINYINT [ (M) ]   -127..128   or 0..255                 1                Very small integers
+SMALLINT [ (M) ]  -32768..32767   or 0..65535          2                Small integers
+MEDIUMINT [ (M) ] -8388608..8388607 or 0..16777215     3                Medium-sized integers
+INT [ (M) ]       -2^31..2^31-1   or 0..2^32-1         4                Regular integers
+INTEGER [ (M) ]                                                          Synonym for INT
+BIGINT [ (M) ]    -2^63..2^63-1   or 0..2^64-1         8                Big integers</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">数据类型</h3><ul class="bullets"><li>四种基本类型：</li><li>数值型（Numeric）</li><li>日期与时间（Date and time）</li><li>字符串（String）</li><li>空间类型（Spatial，用于地理编码）</li><li>应始终选择能容纳待存数据的最小数据类型。</li><li>参见表中列出的整数（数值）类型。</li><li>详见 https://dev.mysql.com/doc/refman/8.0/en/data-types.html</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>MySQL 整数类型对照表：TINYINT（1 字节，−128~127 或 0~255）、SMALLINT（2 字节）、MEDIUMINT（3 字节）、INT / INTEGER（4 字节）、BIGINT（8 字节），含取值范围与说明。</li></ol></div></div></div></article><article class="slide" id="slide-19" data-page="19"><div class="slide-head"><span class="page-badge">P19</span><h2>Practice Create this table!</h2><span class="zh-sub">练习：创建这张表！</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Practice Create this table!</h3><ul class="bullets"><li>An ERD shows relationship between tables. The Person table has a foreign key relationship birth_location_id, which references the id field in the Location table</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>    Person Location
+ name id
+ height city
+              0..N
+ weight state
+ birth_location_id
+                       country</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>MariaDB [week05_csis3280]&gt; CREATE TABLE Location(
+  -&gt; id INT(10) AUTO_INCREMENT PRIMARY KEY,
+   -&gt; city VARCHAR(15),
+   -&gt; state VARCHAR(2),
+   -&gt; country VARCHAR(15)
+  -&gt; )ENGINE=InnoDB;
+Query OK, 0 rows affected (0.017 sec)
+MariaDB [week05_csis3280]&gt; CREATE TABLE Person(
+  -&gt; id INT(10) AUTO_INCREMENT PRIMARY KEY,
+  -&gt; height INT (3),
+   -&gt; weight INT(3),
+   -&gt; locationid INT(10) REFERENCES Location(id)
+  -&gt; ) ENGINE=InnoDB;
+Query OK, 0 rows affected (0.009 sec)
+MariaDB [week05_csis3280]&gt; show tables;
++--------------------------------+
+ Tables_in_week05_csis3280
++--------------------------------+
+ location
+ person
++--------------------------------+
+2 rows in set (0.001 sec)</code></pre></details><details class="ocr" open><summary>截图 3 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>MariaDB [week05_csis3280]&gt; describe person;
++------------+----------+------+-----+---------+----------------+
+| Field      | Type     | Null | Key | Default | Extra          |
++------------+----------+------+-----+---------+----------------+
+| id         | int(10)  | NO   | PRI | NULL    | auto_increment |
+| height     | int(3)   | YES  |     | NULL    |                |
+| weight     | int(3)   | YES  |     | NULL    |                |
+| locationid | int(10)  | YES  |     | NULL    |                |
++------------+----------+------+-----+---------+----------------+
+4 rows in set (0.006 sec)</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">练习：创建这张表！</h3><ul class="bullets"><li>ERD 展示表与表之间的关系：Person 表的外键 birth_location_id 引用 Location 表的 id 字段。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>ERD 图：Person（name、height、weight、birth_location_id）与 Location（id、city、state、country），关系为 0..N。</li><li>MariaDB 建表命令：CREATE TABLE Location(...)、CREATE TABLE Person(... REFERENCES Location(id))，最后 show tables; 得到 location 与 person 两张表。</li><li>describe person; 显示 id、height、weight、locationid 四列的类型、是否允许 NULL、键与 auto_increment 属性。</li></ol></div></div></div></article></section><section class="part" id="part-3"><div class="part-head"><div><span class="part-sub">CH 28 · P20–P29</span><h2>第三部分 · PDO 与数据库连接</h2></div></div><article class="slide" id="slide-20" data-page="20"><div class="slide-head"><span class="page-badge">P20</span><h2>PDO (CH 28)</h2><span class="zh-sub">PDO（第 28 章）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">PDO (CH 28)</h3></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">PDO（第 28 章）</h3><p class="lead-zh"><span class="lead-tag">本节导读</span>PDO（PHP Data Objects）提供面向对象、可跨数据库的统一访问方式，重点是用预处理语句防范 SQL 注入。</p></div></div></article><article class="slide" id="slide-21" data-page="21"><div class="slide-head"><span class="page-badge">P21</span><h2>Relational Database Concepts</h2><span class="zh-sub">PDO 与关系型数据库</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Relational Database Concepts</h3><ul class="bullets"><li>The PDO library for database operations is compatible (through various drivers) with many DBMSs</li><li>It’s Object-Oriented, flexible and have good performance</li><li>It is easier to write more secure database communication code through the use of prepared statements.</li><li>Prepared statements avoids problems of SQL injection attacks</li><li>PDO offers an object fetch mode, whereby data queried from the database is automatically packaged into objects of the appropriate classes in your PHP code (model classes).</li><li>We need to tell PDO which classes correspond to which database tables.</li></ul></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">PDO 与关系型数据库</h3><ul class="bullets"><li>用于数据库操作的 PDO 库通过多种驱动兼容各类 DBMS。</li><li>它是面向对象的，灵活且性能良好。</li><li>借助预处理语句，更容易写出安全的数据库通信代码。</li><li>预处理语句可避免 SQL 注入攻击的问题。</li><li>PDO 提供对象提取模式：查询出的数据会自动封装成 PHP 代码中相应类（模型类）的对象。</li><li>需要告诉 PDO 哪个类对应哪张数据库表。</li></ul></div></div></article><article class="slide" id="slide-22" data-page="22"><div class="slide-head"><span class="page-badge">P22</span><h2>Connecting to a database</h2><span class="zh-sub">连接数据库</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Connecting to a database</h3><ul class="bullets"><li>PDO constructor</li><li>DSN (data source name) specifies the database driver, e.g., mysql, the host, database name (and port number)</li><li>You also need to specify the username and password</li><li>You can specify the PDO options, e.g., to maintain persistent connection. If you do not specify persistent connection, you need to connect to the DB every time you make any query</li><li>Below is part of code that utilizes a DSN to connect to a dabased DB_NAME using PDO</li></ul><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>The use of backslash \PDO is to<br>specify the root global namespace.<br>If you just use PDO, the code will<br>look into other namespaces, e.g.,<br>App\Controllers</p></div><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>PDO PDO::__construct(string DSN [, string username [, string password
+                     [, array driver_opts]]])</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>$connection = new \PDO(
+    'mysql:dbname=' . DB_NAME . ';host=localhost:3306',
+    'root',
+    'passpass'
+);</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">连接数据库</h3><ul class="bullets"><li>PDO 构造函数。</li><li>DSN（数据源名称）指定数据库驱动（例如 mysql）、主机、数据库名（以及端口号）。</li><li>还需要指定用户名和密码。</li><li>可以指定 PDO 选项，例如保持持久连接；若不指定持久连接，每次查询都要重新连接数据库。</li><li>下面是使用 DSN 通过 PDO 连接到 DB_NAME 数据库的部分代码。</li></ul><div class="note"><span class="note-tag">批注译文</span><p>反斜杠 \PDO 用于指定根全局命名空间。如果只写 PDO，代码会到其他命名空间（例如 App\Controllers）中去寻找这个类。</p></div><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>PDO 构造函数签名：PDO::__construct(string DSN [, string username [, string password [, array driver_opts]]])。</li><li>连接示例：$connection = new \PDO('mysql:dbname=' . DB_NAME . ';host=localhost:3306', 'root', 'passpass');</li></ol></div></div></div></article><article class="slide" id="slide-23" data-page="23"><div class="slide-head"><span class="page-badge">P23</span><h2>Prepared Statements</h2><span class="zh-sub">预处理语句（Prepared Statements）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Prepared Statements</h3><ul class="bullets"><li>In order to avoid the SQL injection attack and to improve efficiency, use prepared statements</li><li>You need to prepare(), bindParam() and execute() the query</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>PDOStatement PDO::prepare(string query [, array driver_options])</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>boolean PDOStatement::execute([array input_parameters])</code></pre></details><details class="ocr" open><summary>截图 3 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>boolean PDOStatement::bindParam(mixed parameter, mixed &amp;variable [, int
+                    datatype [, int length [, mixed driver_options]]])</code></pre></details><details class="ocr" open><summary>截图 4 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>$sql = 'CREATE TABLE IF NOT EXISTS product ('
+     . 'id integer PRIMARY KEY AUTO_INCREMENT,'
+     . 'description text,' . 'price float'
+     . ')';
+$stmt1 = $connection-&gt;prepare($sql);
+$stmt1-&gt;execute();
+
+$sql = "INSERT INTO product (description, price) VALUES ('hammer', 9.99)";
+$stmt2 = $connection-&gt;prepare($sql);
+$stmt2-&gt;execute();
+
+$sql = "INSERT INTO product (description, price) VALUES ('ladder', 59.99)";
+$stmt3 = $connection-&gt;prepare($sql);
+$stmt3-&gt;execute();</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">预处理语句（Prepared Statements）</h3><ul class="bullets"><li>为避免 SQL 注入攻击并提升效率，应使用预处理语句。</li><li>需要依次调用 prepare()、bindParam() 和 execute()。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>三个方法签名：PDO::prepare(string query [, array driver_options])、PDOStatement::execute([array input_parameters])、PDOStatement::bindParam(mixed parameter, mixed &amp;variable [, int datatype [, int length [, mixed driver_options]]])。</li><li>示例代码：把 CREATE TABLE 与两条 INSERT 的 SQL 字符串交给 $connection-&gt;prepare($sql)，再依次 execute()。</li><li>截图中的代码 / 命令与界面文字，详见左侧原文。</li><li>截图中的代码 / 命令与界面文字，详见左侧原文。</li></ol></div></div></div></article><article class="slide" id="slide-24" data-page="24"><div class="slide-head"><span class="page-badge">P24</span><h2>Prepared Statements</h2><span class="zh-sub">预处理语句（续）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Prepared Statements</h3><ul class="bullets"><li>To further avoid SQL injection, we need to bind the variable obtained from form submission into the query safely. Notice the use of colon (:)</li></ul><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>Note: bindParm() started to be used from CH29<br>of the book</p></div><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>$sql = 'INSERT INTO product (description, price)'
+     . 'VALUES (:description, :price)';
+$stmt = $this-&gt;connection-&gt;prepare($sql);
+$stmt-&gt;bindParam(':description', $description);
+$stmt-&gt;bindParam(':price', $price);
+$success = $stmt-&gt;execute();</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>$sql = 'DELETE FROM product WHERE id = :id';
+$stmt = $this-&gt;connection-&gt;prepare($sql);
+$stmt-&gt;bindParam(':id', $id);
+$success = $stmt-&gt;execute();</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">预处理语句（续）</h3><ul class="bullets"><li>为进一步避免 SQL 注入，需要把表单提交得到的变量安全地绑定进查询，注意冒号（:）的用法。</li></ul><div class="note"><span class="note-tag">批注译文</span><p>注意：bindParam() 从教材第 29 章开始使用。</p></div><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>INSERT 语句使用命名占位符 :description、:price，bindParam() 绑定变量后再 execute()。</li><li>DELETE 语句使用 :id 占位符，同样先绑定参数再执行。</li></ol></div></div></div></article><article class="slide" id="slide-25" data-page="25"><div class="slide-head"><span class="page-badge">P25</span><h2>The Database class for the DB Connection</h2><span class="zh-sub">用于数据库连接的 Database 类</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">The Database class for the DB Connection</h3><ul class="bullets"><li>Notice the :: (scope resolution operator) to access class constant or static members in creating the connection</li><li>Notice the use of nullable type ?\PDO to specify that the connection may fail and thus return NULL</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>class Database
+{
+    const MYSQL_HOST = 'localhost';
+    const MYSQL_PORT = '3306';
+    const MYSQL_USER = 'root';
+    const MYSQL_PASSWORD = 'passpass';
+    const MYSQL_DATABASE = 'demo199';
+    const DATA_SOURCE_NAME = 'mysql:dbname=' . self::MYSQL_DATABASE
+                          . ';host=' . self::MYSQL_HOST . ':' . self::MYSQL_PORT;
+    private ?\PDO $connection;
+
+    public function getConnection(): ?\PDO
+    {
+        return $this-&gt;connection;
+    }
+
+    public function __construct()
+    {
+        try {
+            $connection = new \PDO(
+                self::DATA_SOURCE_NAME,
+                self::MYSQL_USER,
+                self::MYSQL_PASSWORD
+            );
+            $this-&gt;connection = $connection;
+        } catch (\Exception $e) {
+            print "Database::__construct() - Exception "
+                . "- error trying to create database connection";
+        }
+    }
+}</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">用于数据库连接的 Database 类</h3><ul class="bullets"><li>注意用 ::（范围解析操作符）访问类常量或静态成员来创建连接。</li><li>注意可空类型 ?\PDO 的用法：表示连接可能失败，从而返回 NULL。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Database 类：6 个常量保存主机、端口、用户名、密码、库名与 DSN；private ?\PDO $connection；getConnection() 返回连接；构造函数在 try 中创建 \PDO，catch (\Exception $e) 时打印错误提示。</li></ol></div></div></div></article><article class="slide" id="slide-26" data-page="26"><div class="slide-head"><span class="page-badge">P26</span><h2>Model Class</h2><span class="zh-sub">模型类（Model Class）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Model Class</h3><ul class="bullets"><li>The ER diagram of a single Product table database and its corresponding Product model class</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>class Product
+  private int $id;
+  private string $description;
+  private float $price;
+  public function getId(): int
+  { return $this-&gt;id; }
+  public function setId(int $id): void
+  { $this-&gt;id = $id; }
+  public function getDescription(): string
+  { return $this-&gt;description; }
+  public function setDescription(string $description): void
+  { $this-&gt;description = $description; }
+  public function getPrice(): float
+  { return $this-&gt;price; }
+  public function setPrice(float $price): void
+  { $this-&gt;price = $price; }</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>             Product
+  id: Integer (unique primary key)
+ description: Text
+ price: Float</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">模型类（Model Class）</h3><ul class="bullets"><li>单张 Product 表的 ER 图，以及与之对应的 Product 模型类。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Product 类：private int $id / string $description / float $price，配套 getId()/setId()、getDescription()/setDescription()、getPrice()/setPrice()。</li><li>ER 图：Product（id: Integer 唯一主键、description: Text、price: Float）。</li></ol></div></div></div></article><article class="slide" id="slide-27" data-page="27"><div class="slide-head"><span class="page-badge">P27</span><h2>Front Controller Class</h2><span class="zh-sub">前端控制器类</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Front Controller Class</h3><ul class="bullets"><li>Notice the use \PDO::FETCH_CLASS and Product::class, this is to make sure the record will be fetched as a record/object of Product class</li><li>The ::class magic constant returns the fully qualified class name string</li><li>Notice the use of fetchAll() to fetch all the rows</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>class Application
+  private ?\PDO $connection;
+  public function __construct()
+    $db = new Database();
+    $this-&gt;connection = $db-&gt;getConnection();
+  }
+  public function run()
+  {
+    if (NULL != $this-&gt;connection){
+      $products = $this-&gt;getProducts();
+      print '&lt;pre&gt;';
+      var_dump($products);
+      print '&lt;/pre&gt;';
+    } else {
+      print '&lt;p&gt;Application::run() - sorry '
+        '- there was a problem with the database connection';
+    }
+  }
+  public function getProducts(): array
+    $sql = 'SELECT * FROM product';
+    $stmt = $this-&gt;connection-&gt;prepare($sql);
+    $stmt-&gt;execute();
+    $stmt-&gt;setFetchMode(\PDO::FETCH_CLASS, Product::class);
+    $products = $stmt-&gt;fetchAll();
+    return $products;
+  }
+}</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">前端控制器类</h3><ul class="bullets"><li>注意 \PDO::FETCH_CLASS 与 Product::class 的用法：确保每条记录被取出为 Product 类的对象。</li><li>::class 魔术常量返回完全限定的类名字符串。</li><li>注意使用 fetchAll() 取出全部行。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Application 类：构造时通过 Database 取得连接；run() 调用 getProducts() 并用 var_dump 打印结果；getProducts() 执行 SELECT * FROM product，setFetchMode(\PDO::FETCH_CLASS, Product::class) 后 fetchAll() 返回对象数组。</li></ol></div></div></div></article><article class="slide" id="slide-28" data-page="28"><div class="slide-head"><span class="page-badge">P28</span><h2>Repository Class</h2><span class="zh-sub">仓储类（Repository Class）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Repository Class</h3><ul class="bullets"><li>Repository classes can be used to separate the logic accessing the database from the other logic in the application.</li><li>Its methods take in and return objects, and handle any access to the database</li></ul><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>continue</p></div><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>class ProductRepository
+  private ?\PDO $connection = NULL;
+  public function __construct()
+    $db = new Database();
+    $this-&gt;connection = $db-&gt;getConnection();
+  }
+  public function findAll(): array
+    if (NULL == $this-&gt;connection) return [];
+    $sql = 'SELECT * FROM product';
+    $stmt = $this-&gt;connection-&gt;prepare($sql);
+    $stmt-&gt;execute();
+    $stmt-&gt;setFetchMode(\PDO::FETCH_CLASS, Product::class);
+    $products = $stmt-&gt;fetchAll();
+    return $products;
+  }</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>   public function find(int $id): ?Product
+     if (NULL == $this-&gt;connection) return NULL;
+     $sql = 'SELECT * FROM product WHERE id = :id';
+     $stmt = $this-&gt;connection-&gt;prepare($sql);
+     $stmt-&gt;bindParam(':id', $id);
+    $stmt-&gt;execute();
+     $stmt-&gt;setFetchMode(\PDO::FETCH_CLASS, Product::class);
+     $product = $stmt-&gt;fetch();
+     if ($product == false) {
+       return NULL;
+     }
+     return $product;
+   }
+ }</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">仓储类（Repository Class）</h3><ul class="bullets"><li>仓储类可用于把访问数据库的逻辑与应用中其他逻辑分离。</li><li>它的方法接收并返回对象，并处理所有对数据库的访问。</li></ul><div class="note"><span class="note-tag">批注译文</span><p>（接下页）continue</p></div><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>ProductRepository：findAll() 执行 SELECT * FROM product，以 FETCH_CLASS 取出全部 Product 对象；连接为 NULL 时返回空数组。</li><li>（续）find(int $id): ?Product：用 WHERE id = :id 绑定参数，fetch() 取单条记录；取不到则返回 NULL。</li></ol></div></div></div></article><article class="slide" id="slide-29" data-page="29"><div class="slide-head"><span class="page-badge">P29</span><h2>Updated Front Controller Class..</h2><span class="zh-sub">更新后的前端控制器类……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Updated Front Controller Class..</h3><ul class="bullets"><li>With the repository class implemented, the database related code can be removed from the Application class. The controller can be separated into the classes handling pages with their unique requirements.</li></ul><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>Read the remaining<br>part of the textbook<br>Chapter 28</p></div><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>class Application
+ private DefaultController $defaultController;
+ private ProductController $productController;
+ public function __construct()
+  $this-&gt;defaultController = new DefaultController();
+  $this-&gt;productController = new ProductController();
+ public function run(): void
+  $action = filter_input(INPUT_GET, 'action');
+  switch ($action)
+    case 'products':
+     $this-&gt;productController-&gt;list();
+     break;
+    case 'show':
+     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+     if (empty($id)) {
+      $this-&gt;defaultController-&gt;error('error - To show a product, an integer ID must be provided');
+     } else {
+      $this-&gt;productController-&gt;show($id);
+     }
+     break;
+    default:
+     $this-&gt;defaultController-&gt;homepage();
+  }</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">更新后的前端控制器类……</h3><ul class="bullets"><li>实现仓储类后，数据库相关代码可从 Application 类中移除；控制器也能按各页面的独特需求拆分成不同的类。</li></ul><div class="note"><span class="note-tag">批注译文</span><p>请阅读教材第 28 章的剩余部分。</p></div><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Application 类：构造 DefaultController 与 ProductController；run() 用 filter_input(INPUT_GET, 'action') 读取动作，switch 分发到 products、show 等分支，default 显示首页。</li></ol></div></div></div></article></section><section class="part" id="part-4"><div class="part-head"><div><span class="part-sub">CH 29 · P30–P45</span><h2>第四部分 · CRUD 增删改查</h2></div></div><article class="slide" id="slide-30" data-page="30"><div class="slide-head"><span class="page-badge">P30</span><h2>CRUD (CH 29)</h2><span class="zh-sub">CRUD（第 29 章）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">CRUD (CH 29)</h3></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">CRUD（第 29 章）</h3><p class="lead-zh"><span class="lead-tag">本节导读</span>CRUD = Create（新增）、Read（读取）、Update（更新）、Delete（删除），是数据库驱动应用的核心操作。</p></div></div></article><article class="slide" id="slide-31" data-page="31"><div class="slide-head"><span class="page-badge">P31</span><h2>CRUD</h2><span class="zh-sub">CRUD</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">CRUD</h3><ul class="bullets"><li>Any database-driven mobile or web application revolves around the four CRUD (Create Read Update and Delete) operations</li></ul><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>Front controller<br>Application class<br>Switch statement<br>Action controller<br>ProductController class<br>page method<br>Repository / Data Access Object<br>Repository class<br>CRUD method<br>Database</p></div></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">CRUD</h3><ul class="bullets"><li>任何数据库驱动的移动或 Web 应用，都围绕 CRUD 这四种操作展开。</li></ul><div class="note"><span class="note-tag">批注译文</span><p>请求流转：前端控制器 Application 类（switch 语句）→ 动作控制器 ProductController 类（页面方法）→ 仓储 / 数据访问对象 Repository 类（CRUD 方法）→ 数据库。</p></div></div></div></article><article class="slide" id="slide-32" data-page="32"><div class="slide-head"><span class="page-badge">P32</span><h2>Creating a new record</h2><span class="zh-sub">新增记录（Create）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Creating a new record</h3><ul class="bullets"><li>Creating a new record is done using INSERT statement</li><li>Depending on the structure of your page, you may need to have a specific template to display the form to insert a new record</li><li>The Application class has two action cases to handle the Create functionality: ‘create’ and ‘processCreate’. These two actions proceed to two controller methods</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; Application.php &gt; Application &gt; run
+ class Application
+ public function run(): void
+ case 'create':
+ $this-&gt;productController-&gt;create();
+ break;
+ case 'processCreate':
+ $description = filter_input(INPUT_POST, 'description');
+ $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT,
+ FILTER_FLAG_ALLOW_FRACTION);
+ if ($isPostSubmission &amp;&amp; !empty($description) &amp;&amp; !empty($price)) {
+ $this-&gt;productController-&gt;processCreate($description, $price);
+ } else {
+ $this-&gt;defaultController-&gt;error(
+ 'error - new product needs a description and price (via a POST request) ');
+ }
+ break;</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">新增记录（Create）</h3><ul class="bullets"><li>新增记录使用 INSERT 语句。</li><li>根据页面结构，可能需要专门的模板来显示插入新记录的表单。</li><li>Application 类用 'create' 和 'processCreate' 两个 case 处理新增功能，分别转到控制器的两个方法。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Application.php 的 run()：case 'create' 调用 productController-&gt;create()；case 'processCreate' 用 filter_input(INPUT_POST, ...) 读取 description 与 price，确认是 POST 且均非空后调用 processCreate()，否则输出错误信息。</li></ol></div></div></div></article><article class="slide" id="slide-33" data-page="33"><div class="slide-head"><span class="page-badge">P33</span><h2>Creating a new record</h2><span class="zh-sub">新增记录（Create）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Creating a new record</h3><ul class="bullets"><li>The ProductController class has two methods:</li><li>create() → this will display the form template</li><li>processCreate() → this will call ProductRepository’s insert() method</li></ul><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>A successful data insertion will<br>lead the user to the listing<br>product page</p></div><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; ProductController.php &gt;...
+ class ProductController extends Controller
+ public function create(): void
+ {
+ $template = 'product/create.html.twig';
+ $args = [];
+ print $this-&gt;twig-&gt;render($template, $args);
+ public function processCreate(string $description, float $price): void
+ {
+ $newObjectId = $this-&gt;productRepository-&gt;insert($description, $price);
+ $_SESSION['id'] = $newObjectId;
+ $location = '/?action=products';
+ header("Location: $location");
+ }</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>localhost:3000/?action=create
+   Home page Product List page
+ Create NEW Product page
+ Description:
+  Price:
+  Submit</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">新增记录（Create）</h3><ul class="bullets"><li>ProductController 类有两个方法：</li><li>create() → 显示表单模板。</li><li>processCreate() → 调用 ProductRepository 的 insert() 方法。</li></ul><div class="note"><span class="note-tag">批注译文</span><p>成功插入数据后，用户会被带到商品列表页。</p></div><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>ProductController：create() 渲染 product/create.html.twig；processCreate() 调用 insert() 取得新 ID，存入 $_SESSION['id'] 以便高亮新记录，再 header("Location: $location") 跳转。</li><li>浏览器截图：Create NEW Product 页面，含 Description、Price 输入框与 Submit 按钮。</li></ol></div></div></div></article><article class="slide" id="slide-34" data-page="34"><div class="slide-head"><span class="page-badge">P34</span><h2>Creating a new record</h2><span class="zh-sub">新增记录（Create）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Creating a new record</h3><ul class="bullets"><li>The submitted data needs to be processed using prepare → bindParam → execute. Notice that:</li><li>The insert() method was called from ProductController’s processCreate() method</li><li>The processCreate() was called because the form was submitted</li><li>The form was displayed using ProductController’s create() method</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; ProductRepository.php &gt;...
+ class ProductRepository
+ public function insert(string $description, float $price): int
+ {
+ if (NULL == $this-&gt;connection) return -1;
+ $sql = 'INSERT INTO product (description, price)'
+ . 'VALUES (:description, :price)';
+ $stmt = $this-&gt;connection-&gt;prepare($sql);
+ $stmt-&gt;bindParam(':description', $description);
+ $stmt-&gt;bindParam(':price', $price);
+ $success = $stmt-&gt;execute();
+ if ($success) {
+ return $this-&gt;connection-&gt;lastInsertId();
+ } else {
+ return -1;
+ }</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">新增记录（Create）</h3><ul class="bullets"><li>提交的数据需要按 prepare → bindParam → execute 处理。注意：</li><li>insert() 方法由 ProductController 的 processCreate() 调用。</li><li>processCreate() 被触发，是因为表单被提交了。</li><li>表单则由 ProductController 的 create() 方法显示。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>ProductRepository::insert()：SQL 'INSERT INTO product (description, price) VALUES (:description, :price)'，绑定 $description、$price 后 execute()；成功则返回 lastInsertId()，否则返回 -1。</li></ol></div></div></div></article><article class="slide" id="slide-35" data-page="35"><div class="slide-head"><span class="page-badge">P35</span><h2>Creating a new record</h2><span class="zh-sub">新增记录（Create）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Creating a new record</h3><ul class="bullets"><li>When a new record was inserted to the DB, the last inserted ID can be returned to the object</li><li>This can be used to highlight a new entry</li><li>The last inserted ID will only be available after a successful insert action. If the user refresh the listing (Read) of products, the last inserted ID will disappear</li></ul><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>A successful data insertion<br>will lead the user to the<br>listing product page</p></div><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>localhost:3000/?action=products
+  Home page Product List page
+ Product List page
+ ID Description Price Detail Edit Delete
+ 1 hammer $9.99
+                 Show Edit Delete
+ 2 ladder $59.99
+                 Show Edit Delete
+ 5 War Hammer $40,000.00
+                 Show Edit Delete
+  Delete ALL products
+  Create NEW product</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">新增记录（Create）</h3><ul class="bullets"><li>新记录插入数据库后，可以把最后插入的 ID 返回给对象。</li><li>该 ID 可用于高亮新加入的条目。</li><li>最后插入 ID 仅在成功插入后可用；若用户刷新商品列表（Read），这个 ID 就会消失。</li></ul><div class="note"><span class="note-tag">批注译文</span><p>成功插入数据后，用户会被带到商品列表页。</p></div><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>浏览器截图：Product List 页面列出 ID、Description、Price 以及 Show / Edit / Delete 操作，底部有 Delete ALL products 与 Create NEW product 链接。</li></ol></div></div></div></article><article class="slide" id="slide-36" data-page="36"><div class="slide-head"><span class="page-badge">P36</span><h2>Reading the records</h2><span class="zh-sub">读取记录（Read）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Reading the records</h3><ul class="bullets"><li>Reading the records is done using SELECT statement</li><li>The Application class has an action cases to handle the Read functionality: ‘product’. This action proceed to list() controller method</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; Application.php Es Application &gt; run
+ class Application
+ public function run(): void
+ {
+ $action = filter_input(INPUT_GET, 'action');
+ $isPostSubmission = ($_SERVER['REQUEST_METHOD'] === 'POST');
+ switch ($action)
+ {
+ case 'products':
+ $this-&gt;productController-&gt;list();
+ break;</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">读取记录（Read）</h3><ul class="bullets"><li>读取记录使用 SELECT 语句。</li><li>Application 类中有一个 'product' 动作 case 处理读取功能，转到控制器的 list() 方法。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Application.php 的 run() 开头：$action = filter_input(INPUT_GET, 'action')；$isPostSubmission 判断 $_SERVER['REQUEST_METHOD'] === 'POST'；switch 中 case 'products' 调用 productController-&gt;list()。</li></ol></div></div></div></article><article class="slide" id="slide-37" data-page="37"><div class="slide-head"><span class="page-badge">P37</span><h2>Reading the records</h2><span class="zh-sub">读取记录（Read）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Reading the records</h3><ul class="bullets"><li>Unless your application provide a filtered read or pagination, the read functionality is pretty straightforward handled by findAll() method</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; * ProductController.php &gt;...
+  class ProductController extends Controller
+ public function list(): void
+ {
+ $products = $this-&gt;productRepository-&gt;findAll();
+ $id = $this-&gt;getIdFromSession();
+ $template = 'product/list.html.twig';
+ $args = [
+ 'products' =&gt; $products,
+ 'id' =&gt; $id
+ ];
+ print $this-&gt;twig-&gt;render($template, $args);
+ }</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">读取记录（Read）</h3><ul class="bullets"><li>除非应用提供筛选读取或分页，否则读取功能基本由 findAll() 方法直接完成。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>ProductController::list()：调用 findAll() 取得全部商品，从 session 取出要高亮的 $id，组装 $args 后渲染 product/list.html.twig。</li></ol></div></div></div></article><article class="slide" id="slide-38" data-page="38"><div class="slide-head"><span class="page-badge">P38</span><h2>Reading the records</h2><span class="zh-sub">读取记录（Read）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Reading the records</h3><ul class="bullets"><li>The read is done using prepare → execute. Notice that:</li><li>The records were fetched to a class</li><li>All the records were fetched</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; * ProductRepository.php &gt; * ProductRepository
+  class ProductRepository
+ public function findAll(): array
+ {
+ if (NULL == $this-&gt;connection) return [];
+ $sql = 'SELECT * FROM product';
+ $stmt = $this-&gt;connection-&gt;prepare($sql);
+ $stmt-&gt;execute();
+ $stmt-&gt;setFetchMode(\PDO::FETCH_CLASS, Product::class);
+ $products = $stmt-&gt;fetchAll();
+ return $products;</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">读取记录（Read）</h3><ul class="bullets"><li>读取按 prepare → execute 完成。注意：</li><li>记录被取出为某个类的对象。</li><li>一次性取出全部记录。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>ProductRepository::findAll()：SELECT * FROM product → prepare() → execute() → setFetchMode(\PDO::FETCH_CLASS, Product::class) → fetchAll() 返回全部对象。</li></ol></div></div></div></article><article class="slide" id="slide-39" data-page="39"><div class="slide-head"><span class="page-badge">P39</span><h2>Updating a record</h2><span class="zh-sub">更新记录（Update）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Updating a record</h3><ul class="bullets"><li>Updating a record is done using UPDATE statement</li><li>Update always needs two stage of operations such that the first stage is to load a specific record to edit; while the second stage is to process the edit</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; Application.php &gt; * Application &gt; run
+ class Application
+ public function run(): void
+ case 'edit':
+ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+ if (empty($id)) {
+ $this-&gt;defaultController-&gt;error(
+ 'error - To edit a product, an integer ID must be provided');
+ } else {
+ $this-&gt;productController-&gt;edit($id);
+ break;
+ case 'processEdit':
+ $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+ $description = filter_input(INPUT_POST, 'description');
+ $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT,
+ FILTER_FLAG_ALLOW_FRACTION);
+ if ($isPostSubmission &amp;&amp; !empty($id) &amp;&amp; !empty($description)
+ &amp;&amp; !empty($price)) {
+ $this-&gt;productController-&gt;processEdit($id, $description, $price);
+ } else {
+ $this-&gt;defaultController-&gt;error(
+ 'error - Missing data (or not POST method) when trying to update product');
+ break;</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">更新记录（Update）</h3><ul class="bullets"><li>更新记录使用 UPDATE 语句。</li><li>更新总需要两个阶段：第一阶段加载要编辑的特定记录，第二阶段处理编辑提交。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Application.php：case 'edit' 从 GET 读取并校验 id，调用 productController-&gt;edit($id)；case 'processEdit' 从 POST 读取 id、description、price，校验后调用 processEdit()，否则报错。</li></ol></div></div></div></article><article class="slide" id="slide-40" data-page="40"><div class="slide-head"><span class="page-badge">P40</span><h2>Updating a record</h2><span class="zh-sub">更新记录（Update）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Updating a record</h3><ul class="bullets"><li>The ProductController class has two methods:</li><li>edit() → this will load the form with record to be edited. The record was obtained using ProductRepository’s find() method</li><li>processEdit() → this will call ProductRepository’s update() method</li></ul><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>Record with id=2 will be<br>updated. Note that the ID<br>input form was made readonly<br>so that it cannot be modified.<br>Why???</p></div><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; 19 ProductController.php &gt;...
+ class ProductController extends Controller
+ public function edit(int $id): void
+ {
+ $product = $this-&gt;productRepository-&gt;find($id);
+ $template = 'product/edit.html.twig';
+ $args = [
+ 'product'=&gt; $product
+ print $this-&gt;twig-&gt;render($template, $args);
+ }
+public function processEdit(int $id, string $description,
+float $price): void
+{
+$this-&gt;productRepository-&gt;update($id, $description, $price);
+ // Store ID of product to highlight in the SESSION
+$_SESSION['id'] = $id;
+ $location = '/?action=products';
+ header("Location: $location");
+ }</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>localhost:3000/?action=edit&amp;id=2
+   Home page Product List page
+  Edit Product page
+  ID: 2
+  Description: Siege Tower
+  Price: 5999.99
+   Submit</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">更新记录（Update）</h3><ul class="bullets"><li>ProductController 类有两个方法：</li><li>edit() → 加载带有待编辑记录的表单；该记录由 ProductRepository 的 find() 方法取得。</li><li>processEdit() → 调用 ProductRepository 的 update() 方法。</li></ul><div class="note"><span class="note-tag">批注译文</span><p>将更新 id=2 的记录。注意 ID 输入框被设为 readonly，无法修改。为什么？？？</p></div><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>ProductController::edit() 用 find($id) 取得记录并渲染 product/edit.html.twig；processEdit() 调用 update()，把 $id 存入 $_SESSION 后跳转到列表页。</li><li>浏览器截图：Edit Product 页面显示 ID: 2、Description: Siege Tower、Price: 5999.99 与 Submit 按钮。</li></ol></div></div></div></article><article class="slide" id="slide-41" data-page="41"><div class="slide-head"><span class="page-badge">P41</span><h2>Updating a record</h2><span class="zh-sub">更新记录（Update）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Updating a record</h3><ul class="bullets"><li>The submitted data needs to be processed using prepare → bindParam → execute. Notice that:</li><li>The update() method was called from ProductController’s processEdit() method</li><li>The processEdit() was called because the edit form was submitted</li><li>Notice the use of UPDATE and WHERE clause in the SQL query</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src&gt;e ProductRepository.php&gt; ProductRepository
+ class ProductRepository
+ public function update(int $id, string $description, float $price): bool
+ {
+ if (NULL == $this-&gt;connection) return false;
+ $sql = 'UPDATE product SET description = :description, price = :price WHERE id=:id';
+ $stmt = $this-&gt;connection-&gt;prepare($sql);
+ $stmt-&gt;bindParam(':id', $id);
+$stmt-&gt;bindParam(':description', $description);
+$stmt-&gt;bindParam(':price', $price);
+$success = $stmt-&gt;execute();
+return $success;
+}</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">更新记录（Update）</h3><ul class="bullets"><li>提交的数据需要按 prepare → bindParam → execute 处理。注意：</li><li>update() 方法由 ProductController 的 processEdit() 调用。</li><li>processEdit() 被触发，是因为编辑表单被提交了。</li><li>注意 SQL 查询中 UPDATE 与 WHERE 子句的用法。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>ProductRepository::update()：SQL 'UPDATE product SET description = :description, price = :price WHERE id = :id'，依次绑定 :id、:description、:price 后 execute()，返回是否成功。</li></ol></div></div></div></article><article class="slide" id="slide-42" data-page="42"><div class="slide-head"><span class="page-badge">P42</span><h2>Updating a record</h2><span class="zh-sub">更新记录（Update）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Updating a record</h3><ul class="bullets"><li>The record’s id can be stored as a session variable in ProductController’s processEdit() method</li><li>This can be used to highlight the updated entry</li></ul><div class="note"><span class="note-tag">手写批注 · Slide notes</span><p>A successful data update<br>will lead the user to the<br>listing product page</p></div><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>localhost:3000/action=products
+  Home page Product List page
+ Product List page
+ ID Description Price Detail Edit Delete
+ 1 hammer $9.99
+                 Show Edit Delete
+ 2 Siege Tower $ 5,999.99
+                 Show Edit Delete
+ 5 War Hammer $ 40,000.00
+                 Show Edit Delete
+  Delete ALL products
+  Create NEW product</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">更新记录（Update）</h3><ul class="bullets"><li>记录的 id 可在 ProductController 的 processEdit() 方法中存为 session 变量。</li><li>这可用于高亮刚刚更新的条目。</li></ul><div class="note"><span class="note-tag">批注译文</span><p>成功更新数据后，用户会被带到商品列表页。</p></div><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>浏览器截图：Product List 页面中 id=2 的记录已变为 Siege Tower / $5,999.99。</li></ol></div></div></div></article><article class="slide" id="slide-43" data-page="43"><div class="slide-head"><span class="page-badge">P43</span><h2>Deleting record(s)</h2><span class="zh-sub">删除记录（Delete）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Deleting record(s)</h3><ul class="bullets"><li>Deleting a record is done using DELETE statement</li><li>You need to be cautious in deleting record. You need to ask for a confirmation to the user in performing any delete</li><li>Deleting all record is generally not a functionality that is advisable to be provided</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; Application.php &gt; * Application &gt; run
+ class Application
+ public function run(): void
+ case 'deleteAll':
+ if ($isPostSubmission) {
+ $this-&gt;productController-&gt;deleteAll();
+ } else {
+ $this-&gt;defaultController-&gt;
+ error('error - not a POST request');
+ }
+ break;
+ case 'delete':
+ $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+ if ($isPostSubmission &amp;&amp; !empty($id)) {
+ $this-&gt;productController-&gt;delete($id);
+ } else {
+ $this-&gt;defaultController-&gt;error('error - the integer id was not provided by a POST request');
+ }
+ break;</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">删除记录（Delete）</h3><ul class="bullets"><li>删除记录使用 DELETE 语句。</li><li>删除记录必须谨慎：执行任何删除前都要向用户请求确认。</li><li>一般不建议提供“删除全部记录”这样的功能。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Application.php：case 'deleteAll' 先确认是 POST 请求才调用 deleteAll()；case 'delete' 从 POST 读取 id 并校验，再调用 delete($id)，否则输出错误信息。</li></ol></div></div></div></article><article class="slide" id="slide-44" data-page="44"><div class="slide-head"><span class="page-badge">P44</span><h2>Deleting record(s)</h2><span class="zh-sub">删除记录（Delete）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Deleting record(s)</h3><ul class="bullets"><li>Deleting a record is straightforward. You need to bind the parameter to delete a specific record</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src&gt; ProductController.php &gt; ProductController
+  class ProductController extends Controller
+ public function deleteAll(): void
+ {
+ $this-&gt;productRepository-&gt;deleteAll();
+ $location = '/?action=products';
+ header("Location: $location");
+ }
+ public function delete(int $id): void
+ {
+ $this-&gt;productRepository-&gt;delete($id);
+ $location = '/?action=products';
+ header("Location: $location");
+ }</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; *ProductRepository.php &gt; * ProductRepository
+  class ProductRepository
+ public function deleteAll(): int
+ {
+ if (NULL == $this-&gt;connection) return 0;
+ $sql = 'DELETE FROM product';
+ $stmt = $this-&gt;connection-&gt;prepare($sql);
+ $stmt-&gt;execute();
+ $numRowsAffected = $stmt-&gt;rowCount();
+ return $numRowsAffected;
+ }
+ public function delete(int $id): bool
+ {
+ if (NULL == $this-&gt;connection) return false;
+ $sql = 'DELETE FROM product WHERE id = :id';
+ $stmt = $this-&gt;connection-&gt;prepare($sql);
+ $stmt-&gt;bindParam(':id', $id);
+ $success = $stmt-&gt;execute();
+ return $success;</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">删除记录（Delete）</h3><ul class="bullets"><li>删除记录很直接：绑定参数以删除指定的那条记录。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>ProductController::deleteAll() 与 delete($id)：调用仓储层对应方法后 header("Location: $location") 跳转回列表页。</li><li>ProductRepository::deleteAll() 执行 DELETE FROM product 并返回 rowCount()；delete($id) 用 WHERE id = :id 绑定参数后 execute()，返回布尔值。</li></ol></div></div></div></article><article class="slide" id="slide-45" data-page="45"><div class="slide-head"><span class="page-badge">P45</span><h2>Displaying a single record</h2><span class="zh-sub">显示单条记录</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Displaying a single record</h3><ul class="bullets"><li>Displaying a single record is straightforward. It utilizes the ProductRepository’s find() method that was used in the edit functionality</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; *Application.php&gt; *: Application &gt; run
+ class Application
+ public function run(): void
+ case 'show':
+ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+ if (empty($id)) {
+ $this-&gt;defaultController-&gt;error('error - An integer ID must be provided');
+ } else {
+ $this-&gt;productController-&gt;show($id);
+ }
+ break;</code></pre></details><details class="ocr" open><summary>截图 2 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src&gt;# ProductController.php&gt; ProductController
+ class ProductController extends Controller
+ public function show(int $id): void
+ {
+ $product = $this-&gt;productRepository-&gt;find($id);
+ if (empty($product)) {
+ $defaultController = new DefaultController();
+ $defaultController-&gt;error('error - No product found with ID =' . $id);
+ } else {
+ $template = 'product/show.html.twig';
+ $args = [
+ 'product' =&gt; $product
+ ];
+ print $this-&gt;twig-&gt;render($template, $args);
+ }</code></pre></details><details class="ocr" open><summary>截图 3 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>localhost:3000/?action=show&amp;id=1
+   Home page Product List page
+  Product Details page
+  id: 1
+  description: hammer
+  price: $9.99
+    Back</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">显示单条记录</h3><ul class="bullets"><li>显示单条记录同样直接：复用编辑功能中 ProductRepository 的 find() 方法。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Application.php：case 'show' 校验整数 id 后调用 productController-&gt;show($id)。</li><li>ProductController::show()：find($id) 取不到时调用 defaultController-&gt;error()，否则渲染 product/show.html.twig。</li><li>浏览器截图：Product Details 页面显示 id: 1、description: hammer、price: $9.99 与 Back 按钮。</li></ol></div></div></div></article></section><section class="part" id="part-5"><div class="part-head"><div><span class="part-sub">Validation &amp; Auth · P46–P62</span><h2>第五部分 · 表单验证与登录认证</h2></div></div><article class="slide" id="slide-46" data-page="46"><div class="slide-head"><span class="page-badge">P46</span><h2>CRUD with Validation and Auth</h2><span class="zh-sub">带验证与认证的 CRUD</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">CRUD with Validation and Auth</h3></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">带验证与认证的 CRUD</h3><p class="lead-zh"><span class="lead-tag">本节导读</span>最后一部分：给表单加入校验（validation），并用 User 类、登录 / 注销与 session 实现认证（Auth）。</p></div></div></article><article class="slide" id="slide-47" data-page="47"><div class="slide-head"><span class="page-badge">P47</span><h2>Adding validation and Auth</h2><span class="zh-sub">加入验证与认证</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding validation and Auth</h3><ul class="bullets"><li>Form Validation can be added to the class representing the entity</li><li>The method can be called from front controller</li><li>Related template may need to be updated</li><li>Adding authentication requires us to:</li><li>Add User class, its controller and repository</li><li>Add action handler in the front controller</li><li>Modify related templates</li></ul></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入验证与认证</h3><ul class="bullets"><li>可以在代表实体的类中加入表单验证。</li><li>该方法可以由前端控制器调用。</li><li>相关模板可能也需要修改。</li><li>加入认证需要我们：</li><li>新增 User 类，以及它的控制器和仓储类。</li><li>在前端控制器中加入动作处理分支。</li><li>修改相关模板。</li></ul></div></div></article><article class="slide" id="slide-48" data-page="48"><div class="slide-head"><span class="page-badge">P48</span><h2>Adding validation …</h2><span class="zh-sub">加入验证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding validation …</h3><ul class="bullets"><li>Validate method in the Product class</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; * Product.php&gt; Product
+ class Product
+ public static function validate(): Array
+ {
+ $errors = [];
+ $description = filter_input(INPUT_POST, 'description');
+ if (empty($description)) {
+ $errors[] = 'Please enter description';
+ }
+ $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT,
+ FILTER_FLAG_ALLOW_FRACTION);
+ if (empty($price)) {
+ $errors[] = 'Please enter the price';
+ }
+ return $errors;
+ }
+ }</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入验证……</h3><ul class="bullets"><li>在 Product 类中加入 validate() 方法。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Product::validate()：用 filter_input 读取 description（价格使用 FILTER_SANITIZE_NUMBER_FLOAT 与 FILTER_FLAG_ALLOW_FRACTION），为空则把提示加入 $errors 数组，最后返回错误列表。</li></ol></div></div></div></article><article class="slide" id="slide-49" data-page="49"><div class="slide-head"><span class="page-badge">P49</span><h2>Adding validation …</h2><span class="zh-sub">加入验证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding validation …</h3><ul class="bullets"><li>Modify the front controller for create and processCreate action. Notice that we also need to modify the product controller</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src&gt; Application.php&gt; Application &gt; 9 run
+ class Application
+ public function run(): void
+ case 'create':
+ $formData = [];
+ $this-&gt;productController-&gt;create($formData);
+ break;
+case 'processCreate':
+$error = Product::validate();
+$formData = [
+'error' =&gt; $error,
+// for the following, you can also instantiate a Product object
+// But make sure to also edit the controller's method and the template
+'description' =&gt; filter_input(INPUT_POST, 'description'),
+'price' =&gt; filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT,
+FILTER_FLAG_ALLOW_FRACTION)
+];
+if ($isPostSubmission &amp;&amp; empty($error)) {
+$this-&gt;productController-&gt;processCreate($formData);
+} else {
+$this-&gt;productController-&gt;create($formData);
+break;</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入验证……</h3><ul class="bullets"><li>修改前端控制器的 create 与 processCreate 动作；注意同时还需要修改产品控制器。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Application.php：case 'create' 传入空的 $formData；case 'processCreate' 调用 Product::validate()，组装含 error、description、price 的 $formData；仅当为 POST 且无错误时调用 processCreate($formData)，否则重新显示表单。</li></ol></div></div></div></article><article class="slide" id="slide-50" data-page="50"><div class="slide-head"><span class="page-badge">P50</span><h2>Adding validation …</h2><span class="zh-sub">加入验证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding validation …</h3><ul class="bullets"><li>Modify the product controller. Notice that we also need to modify the create template</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; ProductController.php &gt; ProductController &gt; edit
+ class ProductController extends Controller
+ public function create(Array $data): void
+ {
+ $template = 'product/create.html.twig';
+ $args = $data;
+ print $this-&gt;twig-&gt;render($template, $args);
+ }
+ public function processCreate(Array $data): void
+ $description = $data['description'];
+ $price = $data['price'];
+ $newObjectId = $this-&gt;productRepository-&gt;insert($description, $price);
+ $_SESSION['id'] = $newObjectId;
+ $location = '/?action=products';
+      header("Location: $location");
+ }</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入验证……</h3><ul class="bullets"><li>修改产品控制器；注意同时需要修改 create 模板。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>ProductController::create(Array $data) 把 $data 作为 $args 传给模板；processCreate(Array $data) 从数组取 description、price，调用 insert() 并把新 ID 存入 session 后跳转。</li></ol></div></div></div></article><article class="slide" id="slide-51" data-page="51"><div class="slide-head"><span class="page-badge">P51</span><h2>Adding validation …</h2><span class="zh-sub">加入验证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding validation …</h3><ul class="bullets"><li>Modify the template</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>{% block body %}
+  &lt;h1&gt;Create NEW Product page&lt;/h1&gt;
+  {% if error is not empty %}
+  &lt;div class="form-control is-invalid"&gt;
+    &lt;ul&gt;
+      {% for err in error %}
+      &lt;li&gt;{{ err }}&lt;/li&gt;
+      {% endfor %}
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  {% endif %}
+
+  &lt;form method="POST" action="/?action=processCreate"&gt;
+  &lt;p&gt;
+    Description:
+    &lt;input name="description" value={{ description }}&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    Price:
+    &lt;input name="price" type="number" min="0" step="0.01" value= {{ price }}&gt;
+  &lt;/p&gt;
+  &lt;input type="submit" class="btn btn-primary"&gt;
+&lt;/form&gt;
+{% endblock %}</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入验证……</h3><ul class="bullets"><li>修改模板。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Twig 模板 create.html.twig：{% block body %} 中用 {% if error is not empty %} 循环显示错误列表；表单以 POST 提交到 /?action=processCreate，输入框用 {{ description }}、{{ price }} 回填已填内容。</li></ol></div></div></div></article><article class="slide" id="slide-52" data-page="52"><div class="slide-head"><span class="page-badge">P52</span><h2>Adding validation …</h2><span class="zh-sub">加入验证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding validation …</h3><ul class="bullets"><li>Modify the front controller for processEdit action. We also need to modify the product controller. Note that we will keep the error goes to the error page</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; Application.php &gt; * Application &gt; run
+ class Application
+ public function run(): void
+case 'processEdit':
+$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+$error = Product::validate();
+$formData = [
+'error' =&gt; $error,
+// for the following, you can also instantiate a Product object
+// But make sure to also edit the controller's method and the template
+'id' =&gt; $id,
+'description' =&gt; filter_input(INPUT_POST, 'description'),
+'price' =&gt; filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT,
+FILTER_FLAG_ALLOW_FRACTION)
+if ($isPostSubmission &amp;&amp; !empty($id) &amp;&amp; empty($error)) {
+        $this-&gt;productController-&gt;processEdit($formData);
+} else {
+// we will keep the error goes to the default controller
+$this-&gt;defaultController-&gt;error(
+'error - Missing data (or not POST method) when trying to update product');
+}
+break;</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入验证……</h3><ul class="bullets"><li>修改前端控制器的 processEdit 动作，同时还需要修改产品控制器；注意这里让错误仍然交由错误页面处理。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Application.php：case 'processEdit' 读取 id、调用 Product::validate()、组装含 error / id / description / price 的 $formData；校验通过才调用 processEdit($formData)，否则 defaultController-&gt;error(...)。</li></ol></div></div></div></article><article class="slide" id="slide-53" data-page="53"><div class="slide-head"><span class="page-badge">P53</span><h2>Adding validation …</h2><span class="zh-sub">加入验证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding validation …</h3><ul class="bullets"><li>Modify the product controller</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; ProductController.php &gt; : ProductController &gt; edit
+  class ProductController extends Controller
+ public function processEdit(Array $data): void
+ {
+ $id = $data['id'];
+ $description = $data['description'];
+ $price = $data['price'];
+ $this-&gt;productRepository-&gt;update($id, $description, $price);
+ // Store ID of product to highlight in the SESSION
+ $_SESSION['id'] = $id;
+ $location = '/?action=products';
+ header("Location: $location");</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入验证……</h3><ul class="bullets"><li>修改产品控制器。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>ProductController::processEdit(Array $data)：从 $data 取出 id、description、price，调用 update()，把 id 存入 $_SESSION 并跳转回商品列表。</li></ol></div></div></div></article><article class="slide" id="slide-54" data-page="54"><div class="slide-head"><span class="page-badge">P54</span><h2>Adding auth …</h2><span class="zh-sub">加入认证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding auth …</h3><ul class="bullets"><li>Add user table in the database. Note that the password was generated using password_hash('Admin$123',PASSWORD_DEFAULT)</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>&lt;?php
+define('DB_NAME', 'demo29');
+
+// ------------------ for login ------------------
+// Make sure create_database.php run first
+
+$connection = new \PDO(
+    'mysql:dbname=' . DB_NAME . ';host=localhost:3306',
+    'root',
+    ''
+);
+$sql = 'CREATE TABLE IF NOT EXISTS user ('
+     . 'id integer PRIMARY KEY AUTO_INCREMENT, '
+     . 'username text,' . 'password text'
+     . ')';
+$stmt4 = $connection-&gt;prepare($sql);
+$stmt4-&gt;execute();
+
+// note: the password is Admin$123
+$sql = 'INSERT INTO user (username, password) ';
+$sql .= 'VALUES ("admin", "$2y$10$YwpAqmsPv3s7Ca8mTpcMd.sFq5Lu2kEvi8D0HBBV5BfdB5n3ix9z0")';
+$stmt5 = $connection-&gt;prepare($sql);
+$stmt5-&gt;execute();</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入认证……</h3><ul class="bullets"><li>在数据库中新增 user 表；注意密码是用 password_hash('Admin$123', PASSWORD_DEFAULT) 生成的。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>db/modify_db_user.php：define('DB_NAME', 'demo29')，用 \PDO 连接，CREATE TABLE IF NOT EXISTS user (id, username, password)，并插入 admin 用户及 bcrypt 密码散列（明文为 Admin$123）。</li></ol></div></div></div></article><article class="slide" id="slide-55" data-page="55"><div class="slide-head"><span class="page-badge">P55</span><h2>Adding auth …</h2><span class="zh-sub">加入认证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding auth …</h3><ul class="bullets"><li>Create User class. We do not have any user registration. Hence, we only have getters. Notice the use of password_verify() function</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src&gt; User.php &gt;...
+ &lt;?php
+ namespace Mattsmithdev;
+ class User {
+ private $id;
+ private $username;
+ private $password;
+ function getId(): int {
+ return $this-&gt;id;
+ }
+ function getUserName(): string {
+ return $this-&gt;username;
+ }
+ //Verify the password, pass in the the hash for verification.
+ function verifyPassword(string $passwordToVerify) {
+ return password_verify($passwordToVerify, $this-&gt;password);
+ }
+ }</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入认证……</h3><ul class="bullets"><li>创建 User 类。因为没有用户注册功能，所以只需要 getter；注意 password_verify() 函数的用法。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>User 类：private $id / $username / $password，getId()、getUserName()，以及 verifyPassword(string $passwordToVerify) 调用 password_verify() 比对密码散列。</li></ol></div></div></div></article><article class="slide" id="slide-56" data-page="56"><div class="slide-head"><span class="page-badge">P56</span><h2>Adding auth …</h2><span class="zh-sub">加入认证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding auth …</h3><ul class="bullets"><li>Create UserController class. We just want to process the login</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; UserController.php &gt;...
+ namespace Mattsmithdev;
+ class UserController extends Controller
+ {
+ private UserRepository $userRepository;
+ public function __construct()
+ {
+ parent::__construct();
+ $this-&gt;userRepository = new UserRepository();
+ }
+ public function processLogin(Array $data): void
+ {
+ $username = $data['username'];
+ $password = $data['password'];
+ $user = $this-&gt;userRepository-&gt;find($data['username']);
+ var_dump($user-&gt;verifyPassword($data['password']));
+ if ($user &amp;&amp; $user-&gt;verifyPassword($data['password'])){
+ if (session_status() === PHP_SESSION_NONE) {
+ session_start();
+ }
+ var_dump($user);
+ $_SESSION['username'] = $data['username'];
+ $location = '/?action=products';
+ header("Location: $location");
+ }</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入认证……</h3><ul class="bullets"><li>创建 UserController 类，只需处理登录。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>UserController 继承 Controller：构造时先 parent::__construct() 并创建 UserRepository；processLogin(Array $data) 用 find() 查用户，verifyPassword() 校验通过后 session_start() 并把 username 写入 $_SESSION，再跳转。</li></ol></div></div></div></article><article class="slide" id="slide-57" data-page="57"><div class="slide-head"><span class="page-badge">P57</span><h2>Adding auth …</h2><span class="zh-sub">加入认证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding auth …</h3><ul class="bullets"><li>Create UserRepository class. We just need to query one login user</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src&gt; UserRepository.php&gt;...
+ class UserRepository
+ {
+ private ?\PDO $connection = NULL;
+ public function __construct()
+ {
+ $db = new Database();
+ $this-&gt;connection = $db-&gt;getConnection();
+ }
+ public function find(string $username): ?User
+ {
+ if (NULL == $this-&gt;connection) return NULL;
+ $sql = 'SELECT * FROM user WHERE username = :user'
+ $stmt = $this-&gt;connection-&gt;prepare($sql);
+ $stmt-&gt;bindParam(':user', $username);
+ $stmt-&gt;execute();
+ $stmt-&gt;setFetchMode(\PDO::FETCH_CLASS, User::class);
+ $user = $stmt-&gt;fetch();
+ if ($user == false) {
+ return NULL;
+ }
+ return $user;
+ }
+ }</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入认证……</h3><ul class="bullets"><li>创建 UserRepository 类，只需查询一个登录用户。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>UserRepository：SELECT * FROM user WHERE username = :user，bindParam(':user', $username)，setFetchMode(\PDO::FETCH_CLASS, User::class) 后 fetch()；查不到返回 NULL。</li></ol></div></div></div></article><article class="slide" id="slide-58" data-page="58"><div class="slide-head"><span class="page-badge">P58</span><h2>Adding auth …</h2><span class="zh-sub">加入认证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding auth …</h3><ul class="bullets"><li>Modify the Controller SuperClass to add global variable $_SESSION as a global variable for twig</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; Controller.php &gt;...
+ namespace Mattsmithdev;
+ use Twig\Loader\FilesystemLoader;
+ use Twig\Environment;
+ abstract class Controller
+ {
+ const PATH_TO_TEMPLATES = __DIR__ . '/../templates';
+ protected Environment $twig;
+ public function __construct()
+ {
+ $loader = new FilesystemLoader(self::PATH_TO_TEMPLATES);
+ $this-&gt;twig = new Environment($loader);
+ $this-&gt;twig-&gt;addGlobal('session', $_SESSION);
+ }
+ }</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入认证……</h3><ul class="bullets"><li>修改 Controller 父类，把全局变量 $_SESSION 添加为 Twig 的全局变量。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Controller.php：构造函数中创建 FilesystemLoader 与 Environment 之后，调用 $this-&gt;twig-&gt;addGlobal('session', $_SESSION)，让所有模板都能访问会话数据。</li></ol></div></div></div></article><article class="slide" id="slide-59" data-page="59"><div class="slide-head"><span class="page-badge">P59</span><h2>Adding auth …</h2><span class="zh-sub">加入认证……（同上一页）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding auth …</h3><ul class="bullets"><li>Modify the Controller SuperClass to add global variable $_SESSION as a global variable for twig</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>src &gt; Controller.php &gt;...
+ namespace Mattsmithdev;
+ use Twig\Loader\FilesystemLoader;
+ use Twig\Environment;
+ abstract class Controller
+ {
+ const PATH_TO_TEMPLATES = __DIR__ . '/../templates';
+ protected Environment $twig;
+ public function __construct()
+ {
+ $loader = new FilesystemLoader(self::PATH_TO_TEMPLATES);
+ $this-&gt;twig = new Environment($loader);
+ $this-&gt;twig-&gt;addGlobal('session', $_SESSION);
+ }
+ }</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入认证……（同上一页）</h3><ul class="bullets"><li>修改 Controller 父类，把全局变量 $_SESSION 添加为 Twig 的全局变量。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>与上一页相同的 Controller.php 截图（重复的一张幻灯片）：在构造函数中调用 $this-&gt;twig-&gt;addGlobal('session', $_SESSION)。</li></ol></div></div></div></article><article class="slide" id="slide-60" data-page="60"><div class="slide-head"><span class="page-badge">P60</span><h2>Adding auth …</h2><span class="zh-sub">加入认证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding auth …</h3><ul class="bullets"><li>Modify the Application front controller to have login and logout action</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>class Application
+public function run(): void
+
+switch ($action)
+{
+    case 'login':
+        $formData = [
+            'username' =&gt; filter_input(INPUT_POST, 'username'),
+            'password' =&gt; filter_input(INPUT_POST, 'password')
+        ];
+        if ($isPostSubmission &amp;&amp; $formData['username']) {
+            $this-&gt;userController-&gt;processLogin($formData);
+        }
+        else {
+            $this-&gt;defaultController-&gt;homepage('Wrong username or password');
+        }
+        break;
+
+    case 'logout':
+        unset($_SESSION['username']);
+        session_destroy();
+        $location = '/';
+        header("Location: $location");
+        break;</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入认证……</h3><ul class="bullets"><li>修改 Application 前端控制器，加入 login 与 logout 动作。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>Application.php：case 'login' 收集 POST 的 username / password，为 POST 且有用户名时调用 userController-&gt;processLogin()，否则首页显示 'Wrong username or password'；case 'logout' 执行 unset($_SESSION['username'])、session_destroy() 并跳转首页。</li></ol></div></div></div></article><article class="slide" id="slide-61" data-page="61"><div class="slide-head"><span class="page-badge">P61</span><h2>Adding auth …</h2><span class="zh-sub">加入认证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding auth …</h3><ul class="bullets"><li>Modify the homepage to have the login form</li><li>Modify the tab menu to protect secured pages</li><li>Modify the tab menu to have logout link</li><li>Modify the default controller to accept error message</li><li>Modify the front controller action to be protected by valid session</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>  S MGW- Home page + -
+  → localhost:3000
+    Home page
+   Home page
+    Username: Your username
+    Password: Your password
+                 Log in</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入认证……</h3><ul class="bullets"><li>修改首页，加入登录表单。</li><li>修改标签菜单，保护需要登录才能访问的页面。</li><li>修改标签菜单，加入注销链接。</li><li>修改默认控制器，使其能够接收错误消息。</li><li>修改前端控制器动作，用有效会话进行保护。</li></ul><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>浏览器截图：首页出现 Username / Password 输入框与 Log in 按钮。</li></ol></div></div></div></article><article class="slide" id="slide-62" data-page="62"><div class="slide-head"><span class="page-badge">P62</span><h2>Adding auth …</h2><span class="zh-sub">加入认证……</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Adding auth …</h3><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code> V MGW-Product List page +
+ &lt; → G . localhost:3000/action=products
+    Home page Product List page admin Logout
+   Product List page
+   ID Description Price Detail Edit Delete
+   1 hammer $99.00
+                 Show Edit Delete
+   2 ladder $59.99
+                 Show Edit Delete
+    Delete ALL products
+    Create NEW product</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入认证……</h3><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>浏览器截图：登录后的 Product List 页面，顶部菜单显示当前用户 admin 与 Logout 链接。</li></ol></div></div></div></article></section><div class="no-result" id="noResult">没有匹配的内容，请更换关键词。</div></main>
+<footer>CSIS 3280 · Lecture 8 学习对照页 &nbsp;·&nbsp; 教材文字与截图 OCR 由 Lecture08.pdf 整理 &nbsp;·&nbsp; © Copyright Bambang, and others. 原文版权归原作者所有，本页仅作课程学习使用。</footer>
+<button id="topBtn" title="回到顶部">↑</button>
+<script>
+const body=document.body;
+function setMode(m){body.className='mode-'+m;document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===m));}
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
+setMode('both');
+let openState=true;
+document.getElementById('toggleCode').addEventListener('click',function(){
+  openState=!openState;document.querySelectorAll('details.ocr').forEach(d=>d.open=openState);
+  this.textContent=openState?'收起全部代码':'展开全部代码';this.classList.toggle('active',!openState);
+});
+const search=document.getElementById('search');const slides=[...document.querySelectorAll('.slide')];
+search.addEventListener('input',function(){
+  const q=this.value.trim().toLowerCase();let shown=0;
+  slides.forEach(s=>{const hit=!q||s.textContent.toLowerCase().includes(q);s.style.display=hit?'':'none';if(hit)shown++;});
+  document.querySelectorAll('.part').forEach(p=>{
+    const any=[...p.querySelectorAll('.slide')].some(s=>s.style.display!=='none');
+    p.style.display=any?'':'none';
+  });
+  document.getElementById('noResult').style.display=(shown===0)?'block':'none';
+});
+const topBtn=document.getElementById('topBtn');
+addEventListener('scroll',()=>topBtn.style.display=scrollY>600?'block':'none');
+topBtn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>
