@@ -90,6 +90,16 @@ color:var(--code-ink);white-space:pre;tab-size:4}
 .explain-head{font-size:12px;font-weight:700;color:var(--warm);letter-spacing:.6px;margin-bottom:6px}
 .code-explain ol{margin:0;padding-left:20px;font-size:13.5px;color:#4b5b6b}
 .code-explain li{margin:6px 0}
+.lab-intro{margin:0 0 16px;padding:12px 16px;background:#eef7f5;border-left:3px solid var(--accent);
+border-radius:8px;font-size:13.5px;color:#365c58}
+.lab-intro b{color:var(--accent)}
+.lab .col-en{background:#fbfcfd}
+.lab .ocr pre{max-height:620px;font-size:11.5px;line-height:1.55}
+.ref-row{margin-top:16px;font-size:12px;color:var(--muted)}
+.ref-row span{margin-right:8px}
+.ref-chip{display:inline-block;margin:0 5px 5px 0;padding:2px 9px;border:1px solid var(--accent);
+border-radius:20px;font-size:11px;color:var(--accent);background:#fff}
+.ref-chip:hover{background:var(--accent-soft)}
 footer{border-top:1px solid var(--line);padding:22px 28px;color:var(--muted);font-size:12.5px;
 text-align:center;background:#fff}
 .hint{max-width:1500px;margin:14px auto 0;padding:0 28px;font-size:12.5px;color:var(--muted)}
@@ -117,6 +127,7 @@ body.mode-en .col-en,body.mode-zh .col-zh{border-right:0}
       <div class="stat"><b>62</b> 页幻灯片</div>
       <div class="stat"><b>70</b> 张截图文字识别</div>
       <div class="stat"><b>1024</b> 行代码 / 命令</div>
+      <div class="stat"><b>7</b> 段数据库实操笔记</div>
       <div class="stat">左：教材原文 &nbsp;|&nbsp; 右：中文翻译</div>
     </div>
   </div>
@@ -129,8 +140,8 @@ body.mode-en .col-en,body.mode-zh .col-zh{border-right:0}
   <span class="spacer"></span>
   <input id="search" type="search" placeholder="搜索标题 / 正文 / 代码…" aria-label="搜索内容">
 </div>
-<div class="hint"><b>说明：</b>左栏为 PDF 中可直接复制的文字，以及图片截图（代码、SQL、命令行、UML、浏览器界面）中经 OCR 识别并校对的文字；右栏为逐条中文翻译与截图讲解。点击“截图 N”可折叠代码，右上角可切换单栏 / 双语模式。</div>
-<nav class="toc" aria-label="章节导航"><a href="#part-1"><b>第一部分 · OOP Web 应用与高级 OOP</b><span>CH 23 / CH 26 · P1–P6</span></a><a href="#part-2"><b>第二部分 · 数据库基础</b><span>CH 27 · P7–P19</span></a><a href="#part-3"><b>第三部分 · PDO 与数据库连接</b><span>CH 28 · P20–P29</span></a><a href="#part-4"><b>第四部分 · CRUD 增删改查</b><span>CH 29 · P30–P45</span></a><a href="#part-5"><b>第五部分 · 表单验证与登录认证</b><span>Validation &amp; Auth · P46–P62</span></a></nav>
+<div class="hint"><b>说明：</b>左栏为 PDF 中可直接复制的文字、图片截图（代码、SQL、命令行、UML、浏览器界面）经 OCR 识别并校对的文字，以及附录中本机 MariaDB 的终端实录原文；右栏为逐条中文翻译、截图讲解与实操讲解。点击“截图 N / 命令行原文”可折叠内容，右上角可切换单栏 / 双语模式，也可用搜索框快速定位命令。</div>
+<nav class="toc" aria-label="章节导航"><a href="#part-1"><b>第一部分 · OOP Web 应用与高级 OOP</b><span>CH 23 / CH 26 · P1–P6</span></a><a href="#part-2"><b>第二部分 · 数据库基础</b><span>CH 27 · P7–P19</span></a><a href="#part-3"><b>第三部分 · PDO 与数据库连接</b><span>CH 28 · P20–P29</span></a><a href="#part-4"><b>第四部分 · CRUD 增删改查</b><span>CH 29 · P30–P45</span></a><a href="#part-5"><b>第五部分 · 表单验证与登录认证</b><span>Validation &amp; Auth · P46–P62</span></a><a href="#part-6"><b>附录 · 数据库实操笔记</b><span>MariaDB 10.4.28 · 7 段终端记录</span></a></nav>
 <main id="content"><section class="part" id="part-1"><div class="part-head"><div><span class="part-sub">CH 23 / CH 26 · P1–P6</span><h2>第一部分 · OOP Web 应用与高级 OOP</h2></div></div><article class="slide" id="slide-1" data-page="1"><div class="slide-head"><span class="page-badge">P01</span><h2>CSIS 3280: Lecture 8 OOP web application (CH23) with DB (CH 27-28), CRUD (CH 29)</h2><span class="zh-sub">CSIS 3280：第 8 讲 —— 带数据库的面向对象 Web 应用（第 23 章）、数据库（第 27–28 章）与 CRUD（第 29 章）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">CSIS 3280: Lecture 8 OOP web application (CH23) with DB (CH 27-28), CRUD (CH 29)</h3></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">CSIS 3280：第 8 讲 —— 带数据库的面向对象 Web 应用（第 23 章）、数据库（第 27–28 章）与 CRUD（第 29 章）</h3><p class="lead-zh"><span class="lead-tag">本节导读</span>本讲把 Twig / OOP 的 Web 应用与数据库连接（PDO）、增删改查（CRUD）、表单验证以及登录认证串成一条完整主线。</p></div></div></article><article class="slide" id="slide-2" data-page="2"><div class="slide-head"><span class="page-badge">P02</span><h2>OOP Web Application (CH 23), Advanced OOP (CH26)</h2><span class="zh-sub">面向对象 Web 应用（第 23 章）与高级面向对象（第 26 章）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">OOP Web Application (CH 23), Advanced OOP (CH26)</h3></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">面向对象 Web 应用（第 23 章）与高级面向对象（第 26 章）</h3><p class="lead-zh"><span class="lead-tag">本节导读</span>先回顾第 23 章的 Application / Controller 结构与 Twig 模板，再补充第 26 章的抽象方法、接口与 Trait 等概念。</p></div></div></article><article class="slide" id="slide-3" data-page="3"><div class="slide-head"><span class="page-badge">P03</span><h2>Recall Twig: Application class</h2><span class="zh-sub">回顾 Twig：Application 类</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">原文 · Original</div><h3 class="en-title">Recall Twig: Application class</h3><ul class="bullets"><li>The Application class provide the run() method to render the page</li><li>The Application class contain part of decision logic and page-generation action</li><li>Separate Controller(s) classes can be implemented</li><li>Each page of our web pages are unique while having common parts</li><li>Multiple Controller classes may be needed</li></ul><details class="ocr" open><summary>截图 1 · 图片文字识别 <span class="ocr-tag">OCR</span><span class="arrow">▾</span></summary><pre><code>namespace Mattsmithdev;
 
 use Twig\Loader\FilesystemLoader;
@@ -1085,7 +1096,212 @@ switch ($action)
    2 ladder $59.99
                  Show Edit Delete
     Delete ALL products
-    Create NEW product</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入认证……</h3><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>浏览器截图：登录后的 Product List 页面，顶部菜单显示当前用户 admin 与 Logout 链接。</li></ol></div></div></div></article></section><div class="no-result" id="noResult">没有匹配的内容，请更换关键词。</div></main>
+    Create NEW product</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 中文</div><h3 class="zh-title">加入认证……</h3><div class="code-explain"><div class="explain-head">截图讲解</div><ol><li>浏览器截图：登录后的 Product List 页面，顶部菜单显示当前用户 admin 与 Logout 链接。</li></ol></div></div></div></article></section><section class="part" id="part-6"><div class="part-head"><div><span class="part-sub">Appendix · MariaDB 10.4.28 本机实操</span><h2>附录 · 数据库实操笔记</h2></div></div><div class="lab-intro">以下为在本机 <b>MariaDB 10.4.28</b> 中完成的完整命令行实操记录，对应教材 P13（浏览数据库）、P14（创建数据库）与 P19（建表练习）。左栏为终端输出逐字原文，右栏为中文逐步讲解；宽表格可横向滚动查看。</div><article class="slide lab" id="lab-1"><div class="slide-head"><span class="page-badge">LAB 1</span><h2>Connect to MariaDB and list databases</h2><span class="zh-sub">连接 MariaDB 并查看数据库清单</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">终端实录 · Original transcript</div><h3 class="en-title">Connect to MariaDB and list databases</h3><details class="ocr" open><summary>命令行原文 <span class="ocr-tag">LOG</span><span class="arrow">▾</span></summary><pre><code>johnnylin@Johnnys-MacBook-Air-148 CSIS
+johnnylin@Johnnys-MacBook-Air-148 CSIS3280-week08 % mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.28-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.022 sec)</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 讲解</div><h3 class="zh-title">连接 MariaDB 并查看数据库清单</h3><div class="code-explain"><div class="explain-head">逐步讲解</div><ol><li>在终端执行 mysql -u root 直接免密登录本机 MariaDB；欢迎信息显示连接 id 为 9、服务器版本为 10.4.28-MariaDB（Source distribution）。</li><li>提示符 [(none)] 表示当前尚未选择任何数据库；语句以分号 ; 或 \g 结束，\h 查看帮助，\c 清除当前输入。</li><li>show databases; 列出 5 个数据库：information_schema、mysql、performance_schema、phpmyadmin、test。</li><li>对应 P13「Navigating the Databases」：root 密码为空，所以能直接登录；这只适用于本地练习环境，生产环境绝不可如此。</li></ol></div><div class="ref-row"><span>对应幻灯片</span><a class="ref-chip" href="#slide-13">P13</a></div></div></div></article><article class="slide lab" id="lab-2"><div class="slide-head"><span class="page-badge">LAB 2</span><h2>Inspect the mysql system database</h2><span class="zh-sub">查看 mysql 系统库中的表</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">终端实录 · Original transcript</div><h3 class="en-title">Inspect the mysql system database</h3><details class="ocr" open><summary>命令行原文 <span class="ocr-tag">LOG</span><span class="arrow">▾</span></summary><pre><code>MariaDB [(none)]&gt; use mysql;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [mysql]&gt; show tables;
++---------------------------+
+| Tables_in_mysql           |
++---------------------------+
+| column_stats              |
+| columns_priv              |
+| db                        |
+| event                     |
+| func                      |
+| general_log               |
+| gtid_slave_pos            |
+| help_category             |
+| help_keyword              |
+| help_relation             |
+| help_topic                |
+| host                      |
+| index_stats               |
+| innodb_index_stats        |
+| innodb_table_stats        |
+| plugin                    |
+| proc                      |
+| procs_priv                |
+| proxies_priv              |
+| roles_mapping             |
+| servers                   |
+| slow_log                  |
+| table_stats               |
+| tables_priv               |
+| time_zone                 |
+| time_zone_leap_second     |
+| time_zone_name            |
+| time_zone_transition      |
+| time_zone_transition_type |
+| user                      |
++---------------------------+
+30 rows in set (0.001 sec)</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 讲解</div><h3 class="zh-title">查看 mysql 系统库中的表</h3><div class="code-explain"><div class="explain-head">逐步讲解</div><ol><li>use mysql; 切换到系统数据库 mysql；提示正在预读表名/列名用于自动补全，加 -A 参数可跳过预读以加快启动。</li><li>show tables; 返回 30 张系统表，可大致分为：权限表（db、user、host、tables_priv、columns_priv、procs_priv、proxies_priv、roles_mapping、servers）、统计表（column_stats、index_stats、table_stats、innodb_*_stats）、时区表（time_zone*）、日志表（general_log、slow_log）以及帮助/事件/函数/插件表。</li><li>用户账号与全局权限就存放在 user 表中，是下一步要查看的对象。</li><li>与 P13 截图中的 show tables; 对应，本记录给出了完整的 30 行结果。</li></ol></div><div class="ref-row"><span>对应幻灯片</span><a class="ref-chip" href="#slide-13">P13</a></div></div></div></article><article class="slide lab" id="lab-3"><div class="slide-head"><span class="page-badge">LAB 3</span><h2>Describe the user table</h2><span class="zh-sub">查看 user 表结构（46 个字段）</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">终端实录 · Original transcript</div><h3 class="en-title">Describe the user table</h3><details class="ocr" open><summary>命令行原文 <span class="ocr-tag">LOG</span><span class="arrow">▾</span></summary><pre><code>MariaDB [mysql]&gt; desc user;
++------------------------+-----------------------------------+------+-----+----------+-------+
+| Field                  | Type                              | Null | Key | Default  | Extra |
++------------------------+-----------------------------------+------+-----+----------+-------+
+| Host                   | char(60)                          | NO   | PRI |          |       |
+| User                   | char(80)                          | NO   | PRI |          |       |
+| Password               | char(41)                          | NO   |     |          |       |
+| Select_priv            | enum('N','Y')                     | NO   |     | N        |       |
+| Insert_priv            | enum('N','Y')                     | NO   |     | N        |       |
+| Update_priv            | enum('N','Y')                     | NO   |     | N        |       |
+| Delete_priv            | enum('N','Y')                     | NO   |     | N        |       |
+| Create_priv            | enum('N','Y')                     | NO   |     | N        |       |
+| Drop_priv              | enum('N','Y')                     | NO   |     | N        |       |
+| Reload_priv            | enum('N','Y')                     | NO   |     | N        |       |
+| Shutdown_priv          | enum('N','Y')                     | NO   |     | N        |       |
+| Process_priv           | enum('N','Y')                     | NO   |     | N        |       |
+| File_priv              | enum('N','Y')                     | NO   |     | N        |       |
+| Grant_priv             | enum('N','Y')                     | NO   |     | N        |       |
+| References_priv        | enum('N','Y')                     | NO   |     | N        |       |
+| Index_priv             | enum('N','Y')                     | NO   |     | N        |       |
+| Alter_priv             | enum('N','Y')                     | NO   |     | N        |       |
+| Show_db_priv           | enum('N','Y')                     | NO   |     | N        |       |
+| Super_priv             | enum('N','Y')                     | NO   |     | N        |       |
+| Create_tmp_table_priv  | enum('N','Y')                     | NO   |     | N        |       |
+| Lock_tables_priv       | enum('N','Y')                     | NO   |     | N        |       |
+| Execute_priv           | enum('N','Y')                     | NO   |     | N        |       |
+| Repl_slave_priv        | enum('N','Y')                     | NO   |     | N        |       |
+| Repl_client_priv       | enum('N','Y')                     | NO   |     | N        |       |
+| Create_view_priv       | enum('N','Y')                     | NO   |     | N        |       |
+| Show_view_priv         | enum('N','Y')                     | NO   |     | N        |       |
+| Create_routine_priv    | enum('N','Y')                     | NO   |     | N        |       |
+| Alter_routine_priv     | enum('N','Y')                     | NO   |     | N        |       |
+| Create_user_priv       | enum('N','Y')                     | NO   |     | N        |       |
+| Event_priv             | enum('N','Y')                     | NO   |     | N        |       |
+| Trigger_priv           | enum('N','Y')                     | NO   |     | N        |       |
+| Create_tablespace_priv | enum('N','Y')                     | NO   |     | N        |       |
+| ssl_type               | enum('','ANY','X509','SPECIFIED') | NO   |     |          |       |
+| ssl_cipher             | blob                              | NO   |     | NULL     |       |
+| x509_issuer            | blob                              | NO   |     | NULL     |       |
+| x509_subject           | blob                              | NO   |     | NULL     |       |
+| max_questions          | int(11) unsigned                  | NO   |     | 0        |       |
+| max_updates            | int(11) unsigned                  | NO   |     | 0        |       |
+| max_connections        | int(11) unsigned                  | NO   |     | 0        |       |
+| max_user_connections   | int(11)                           | NO   |     | 0        |       |
+| plugin                 | char(64)                          | NO   |     |          |       |
+| authentication_string  | text                              | NO   |     | NULL     |       |
+| password_expired       | enum('N','Y')                     | NO   |     | N        |       |
+| is_role                | enum('N','Y')                     | NO   |     | N        |       |
+| default_role           | char(80)                          | NO   |     |          |       |
+| max_statement_time     | decimal(12,6)                     | NO   |     | 0.000000 |       |
++------------------------+-----------------------------------+------+-----+----------+-------+
+46 rows in set (0.033 sec)</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 讲解</div><h3 class="zh-title">查看 user 表结构（46 个字段）</h3><div class="code-explain"><div class="explain-head">逐步讲解</div><ol><li>desc user;（等价于 DESCRIBE user; / SHOW COLUMNS FROM user;）显示 user 表共 46 个字段，输出列为 Field、Type、Null、Key、Default、Extra。</li><li>Host（char(60)）与 User（char(80)）都标记为 PRI，二者组成联合主键：账号由「主机 + 用户名」共同唯一确定，这解释了后面出现 3 条 root 记录的原因。</li><li>权限字段几乎都是 enum('N','Y') 且默认 N，例如 Select_priv、Insert_priv、Update_priv、Delete_priv、Create_priv、Drop_priv 分别对应 SELECT、INSERT、UPDATE、DELETE、CREATE、DROP；这正是 P15 GRANT 语句所授予的那几项权限。</li><li>其余字段包括 SSL/X509 证书信息（ssl_type、ssl_cipher、x509_issuer、x509_subject）、资源限额（max_questions、max_updates、max_connections、max_user_connections、max_statement_time）、认证插件 plugin、密码散列 authentication_string，以及 password_expired、is_role、default_role。</li><li>Password 是 char(41) 的旧式字段；MariaDB 10.4 起实际认证主要依赖 plugin + authentication_string，所以 P13 截图改查 authentication_string 列。</li></ol></div><div class="ref-row"><span>对应幻灯片</span><a class="ref-chip" href="#slide-13">P13</a><a class="ref-chip" href="#slide-15">P15</a></div></div></div></article><article class="slide lab" id="lab-4"><div class="slide-head"><span class="page-badge">LAB 4</span><h2>Query all accounts in the user table</h2><span class="zh-sub">查询 user 表中的全部账号</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">终端实录 · Original transcript</div><h3 class="en-title">Query all accounts in the user table</h3><details class="ocr" open><summary>命令行原文 <span class="ocr-tag">LOG</span><span class="arrow">▾</span></summary><pre><code>MariaDB [mysql]&gt; select * from user;
++-----------+------+----------+-------------+-------------+-------------+-------------+-------------+-----------+-------------+---------------+--------------+-----------+------------+-----------------+------------+------------+--------------+------------+-----------------------+------------------+--------------+-----------------+------------------+------------------+----------------+---------------------+--------------------+------------------+------------+--------------+------------------------+----------+------------+-------------+--------------+---------------+-------------+-----------------+----------------------+--------+-----------------------+------------------+---------+--------------+--------------------+
+| Host      | User | Password | Select_priv | Insert_priv | Update_priv | Delete_priv | Create_priv | Drop_priv | Reload_priv | Shutdown_priv | Process_priv | File_priv | Grant_priv | References_priv | Index_priv | Alter_priv | Show_db_priv | Super_priv | Create_tmp_table_priv | Lock_tables_priv | Execute_priv | Repl_slave_priv | Repl_client_priv | Create_view_priv | Show_view_priv | Create_routine_priv | Alter_routine_priv | Create_user_priv | Event_priv | Trigger_priv | Create_tablespace_priv | ssl_type | ssl_cipher | x509_issuer | x509_subject | max_questions | max_updates | max_connections | max_user_connections | plugin | authentication_string | password_expired | is_role | default_role | max_statement_time |
++-----------+------+----------+-------------+-------------+-------------+-------------+-------------+-----------+-------------+---------------+--------------+-----------+------------+-----------------+------------+------------+--------------+------------+-----------------------+------------------+--------------+-----------------+------------------+------------------+----------------+---------------------+--------------------+------------------+------------+--------------+------------------------+----------+------------+-------------+--------------+---------------+-------------+-----------------+----------------------+--------+-----------------------+------------------+---------+--------------+--------------------+
+| localhost | root |          | Y           | Y           | Y           | Y           | Y           | Y         | Y           | Y             | Y            | Y         | Y          | Y               | Y          | Y          | Y            | Y          | Y                     | Y                | Y            | Y               | Y                | Y                | Y              | Y                   | Y                  | Y                | Y          | Y            | Y                      |          |            |             |              |             0 |           0 |               0 |                    0 |        |                       | N                | N       |              |           0.000000 |
+| 127.0.0.1 | root |          | Y           | Y           | Y           | Y           | Y           | Y         | Y           | Y             | Y            | Y         | Y          | Y               | Y          | Y          | Y            | Y          | Y                     | Y                | Y            | Y               | Y                | Y                | Y              | Y                   | Y                  | Y                | Y          | Y            | Y                      |          |            |             |              |             0 |           0 |               0 |                    0 |        |                       | N                | N       |              |           0.000000 |
+| ::1       | root |          | Y           | Y           | Y           | Y           | Y           | Y         | Y           | Y             | Y            | Y         | Y          | Y               | Y          | Y          | Y            | Y          | Y                     | Y                | Y            | Y               | Y                | Y                | Y              | Y                   | Y                  | Y                | Y          | Y            | Y                      |          |            |             |              |             0 |           0 |               0 |                    0 |        |                       | N                | N       |              |           0.000000 |
+| localhost |      |          | N           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | N          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          |            |             |              |             0 |           0 |               0 |                    0 |        |                       | N                | N       |              |           0.000000 |
+| localhost | pma  |          | N           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | N          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          |            |             |              |             0 |           0 |               0 |                    0 |        |                       | N                | N       |              |           0.000000 |
++-----------+------+----------+-------------+-------------+-------------+-------------+-------------+-----------+-------------+---------------+--------------+-----------+------------+-----------------+------------+------------+--------------+------------+-----------------------+------------------+--------------+-----------------+------------------+------------------+----------------+---------------------+--------------------+------------------+------------+--------------+------------------------+----------+------------+-------------+--------------+---------------+-------------+-----------------+----------------------+--------+-----------------------+------------------+---------+--------------+--------------------+
+5 rows in set (0.009 sec)</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 讲解</div><h3 class="zh-title">查询 user 表中的全部账号</h3><div class="code-explain"><div class="explain-head">逐步讲解</div><ol><li>select * from user; 把 46 列全部输出，共 5 行账号记录；由于列数很多，表格非常宽，网页中可横向滚动查看。</li><li>3 条 root 账号分别绑定 localhost、127.0.0.1、::1（IPv6 本机地址），所有 *_priv 权限都是 Y，属于超级管理员。</li><li>另有 1 条用户名为空的匿名账号（localhost）和 1 条 pma 账号（localhost，供 phpMyAdmin 使用），两者所有权限均为 N。</li><li>Password 与 authentication_string 列全部为空 → 印证 P13 的手写批注「Root password is empty… Ha! So much for security」；本机练习尚可，生产环境必须设置密码并清理匿名账号。</li><li>对应 P13 截图中的 select user, host, authentication_string from user;，这里改用 SELECT * 看到完整权限矩阵。</li></ol></div><div class="ref-row"><span>对应幻灯片</span><a class="ref-chip" href="#slide-13">P13</a></div></div></div></article><article class="slide lab" id="lab-5"><div class="slide-head"><span class="page-badge">LAB 5</span><h2>Select specific columns, WHERE clause and Ctrl-C</h2><span class="zh-sub">只查指定列、WHERE 子句与 Ctrl-C 中断</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">终端实录 · Original transcript</div><h3 class="en-title">Select specific columns, WHERE clause and Ctrl-C</h3><details class="ocr" open><summary>命令行原文 <span class="ocr-tag">LOG</span><span class="arrow">▾</span></summary><pre><code>MariaDB [mysql]&gt; select User,Host,Password from user;
++------+-----------+----------+
+| User | Host      | Password |
++------+-----------+----------+
+| root | localhost |          |
+| root | 127.0.0.1 |          |
+| root | ::1       |          |
+|      | localhost |          |
+| pma  | localhost |          |
++------+-----------+----------+
+5 rows in set (0.007 sec)
+
+MariaDB [mysql]&gt; select User,Host,Password from user where User='root'
+    -&gt; 
+    -&gt; Ctrl-C -- exit!
+Aborted
+johnnylin@Johnnys-MacBook-Air-148 CSIS3280-week08 % mysql -u root                                                                                  </code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 讲解</div><h3 class="zh-title">只查指定列、WHERE 子句与 Ctrl-C 中断</h3><div class="code-explain"><div class="explain-head">逐步讲解</div><ol><li>select User,Host,Password from user; 用列投影只取 3 列，结果清晰易读：3 个 root、1 个匿名账号、1 个 pma，密码列全为空。</li><li>接着输入 select User,Host,Password from user where User='root' 但漏写分号，MariaDB 认为语句未结束，停在续行提示符 -&gt; 等待继续输入，因此查询并未执行。</li><li>按 Ctrl-C 中断当前输入并显示 Ctrl-C -- exit! / Aborted，客户端直接退出回到 shell 提示符；也可用 \c 清除当前语句而不退出。</li><li>要点：WHERE User='root' 才是正确的筛选写法；每条 SQL 都要以 ; 结尾，否则会一直停在 -&gt; 状态。</li></ol></div><div class="ref-row"><span>对应幻灯片</span><a class="ref-chip" href="#slide-13">P13</a></div></div></div></article><article class="slide lab" id="lab-6"><div class="slide-head"><span class="page-badge">LAB 6</span><h2>Create the week08 database</h2><span class="zh-sub">创建 week08 数据库</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">终端实录 · Original transcript</div><h3 class="en-title">Create the week08 database</h3><details class="ocr" open><summary>命令行原文 <span class="ocr-tag">LOG</span><span class="arrow">▾</span></summary><pre><code>Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
+Server version: 10.4.28-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]&gt; drop database if exists week08;
+Query OK, 0 rows affected, 1 warning (0.003 sec)
+
+MariaDB [(none)]&gt; create database if not exists week08;
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [(none)]&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| week08             |
++--------------------+
+6 rows in set (0.020 sec)
+
+MariaDB [(none)]&gt; use week08;
+Database changed
+MariaDB [week08]&gt; show tables;
+Empty set (0.001 sec)</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 讲解</div><h3 class="zh-title">创建 week08 数据库</h3><div class="code-explain"><div class="explain-head">逐步讲解</div><ol><li>重新执行 mysql -u root 登录，连接 id 从 9 变为 10，说明上一段会话是被 Ctrl-C 中断而非正常退出。</li><li>drop database if exists week08; 先删旧库：IF EXISTS 使「库不存在」不再报错，只返回 1 warning；这正是 P14 强调的「先检查、若存在则删除」。</li><li>create database if not exists week08; 建库，返回 Query OK, 1 row affected；IF NOT EXISTS 可避免重复创建时报重复库错误。</li><li>show databases; 确认 week08 已出现在列表中，共 6 个库；use week08; 切换后 show tables; 返回 Empty set，说明新库里还没有任何表。</li><li>与 P14 截图对照：幻灯片里用的是 Week05_CSIS3280，本记录用的是 week08；命名不同但流程完全一致（DROP IF EXISTS → CREATE → SHOW → USE）。</li></ol></div><div class="ref-row"><span>对应幻灯片</span><a class="ref-chip" href="#slide-14">P14</a></div></div></div></article><article class="slide lab" id="lab-7"><div class="slide-head"><span class="page-badge">LAB 7</span><h2>Create the location and person tables</h2><span class="zh-sub">创建 location 与 person 两张表</span></div><div class="grid"><div class="col col-en" lang="en"><div class="col-label">终端实录 · Original transcript</div><h3 class="en-title">Create the location and person tables</h3><details class="ocr" open><summary>命令行原文 <span class="ocr-tag">LOG</span><span class="arrow">▾</span></summary><pre><code>MariaDB [week08]&gt; create table location (
+    -&gt; id int AUTO_INCREMENT PRIMARY KEY,
+    -&gt; city varchar(15),
+    -&gt; state varchar(2),
+    -&gt; country varchar(15)
+    -&gt; );
+Query OK, 0 rows affected (0.058 sec)
+
+MariaDB [week08]&gt; desc location;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| city    | varchar(15) | YES  |     | NULL    |                |
+| state   | varchar(2)  | YES  |     | NULL    |                |
+| country | varchar(15) | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+4 rows in set (0.015 sec)
+
+MariaDB [week08]&gt; create table person (
+    -&gt; id int AUTO_INCREMENT PRIMARY KEY,
+    -&gt; height int,
+    -&gt; weight int,
+    -&gt; location_id int REFERENCES location(id)
+    -&gt; );
+Query OK, 0 rows affected (0.045 sec)
+
+MariaDB [week08]&gt; desc person;
++-------------+---------+------+-----+---------+----------------+
+| Field       | Type    | Null | Key | Default | Extra          |
++-------------+---------+------+-----+---------+----------------+
+| id          | int(11) | NO   | PRI | NULL    | auto_increment |
+| height      | int(11) | YES  |     | NULL    |                |
+| weight      | int(11) | YES  |     | NULL    |                |
+| location_id | int(11) | YES  |     | NULL    |                |
++-------------+---------+------+-----+---------+----------------+
+4 rows in set (0.008 sec)
+
+MariaDB [week08]&gt;</code></pre></details></div><div class="col col-zh" lang="zh-CN"><div class="col-label">中文翻译 · 讲解</div><h3 class="zh-title">创建 location 与 person 两张表</h3><div class="code-explain"><div class="explain-head">逐步讲解</div><ol><li>create table location (...) 建立地点表：id 为 int 自增主键（AUTO_INCREMENT PRIMARY KEY），city varchar(15)、state varchar(2)、country varchar(15)；多行的 -&gt; 是客户端的续行提示符，直到输入 ; 才执行。</li><li>desc location; 确认 4 列：id 的 Extra 为 auto_increment，其余三列允许 NULL、默认 NULL。</li><li>create table person (...) 建立人员表，除 id、height、weight 外，还有 location_id int REFERENCES location(id)，意图让它成为指向 location(id) 的外键。</li><li>注意 desc person; 中 location_id 的 Key 列为空，且没有出现外键信息 → 说明这个内联 REFERENCES 并未真正建立外键约束（MySQL/MariaDB 常会解析但忽略内联外键定义）。要真正生效需显式写 FOREIGN KEY (location_id) REFERENCES location(id)，并使用 InnoDB 引擎。</li><li>与 P19「练习：创建这张表！」对应：本记录把列名写成 location_id（下划线），幻灯片截图里是 locationid，且截图显式写了 ENGINE=InnoDB；这里省略了 ENGINE 子句。</li></ol></div><div class="ref-row"><span>对应幻灯片</span><a class="ref-chip" href="#slide-16">P16</a><a class="ref-chip" href="#slide-17">P17</a><a class="ref-chip" href="#slide-19">P19</a></div></div></div></article></section><div class="no-result" id="noResult">没有匹配的内容，请更换关键词。</div></main>
 <footer>CSIS 3280 · Lecture 8 学习对照页 &nbsp;·&nbsp; 教材文字与截图 OCR 由 Lecture08.pdf 整理 &nbsp;·&nbsp; © Copyright Bambang, and others. 原文版权归原作者所有，本页仅作课程学习使用。</footer>
 <button id="topBtn" title="回到顶部">↑</button>
 <script>
