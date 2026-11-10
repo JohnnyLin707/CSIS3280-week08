@@ -1,3 +1,3 @@
 Link:
 
-https://johnnylin707.github.io/SIS3280-week08/
+https://johnnylin707.github.io/CSIS3280-week08/
